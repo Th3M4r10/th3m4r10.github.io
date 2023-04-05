@@ -1,0 +1,575 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>M4r10's Blog</title>
+ <link href="https://th3m4r10.github.io/atom.xml" rel="self"/>
+ <link href="https://th3m4r10.github.io/"/>
+ <updated>2023-04-05T19:15:34+00:00</updated>
+ <id>https://th3m4r10.github.io</id>
+ <author>
+   <name>m4r10</name>
+   <email>muraligari2365@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>PicoCTF 2023</title>
+   <link href="https://th3m4r10.github.io/2023/04/04/picoctf2023"/>
+   <updated>2023-04-04T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/04/04/picoCTF2023</id>
+   <content type="html">&lt;p&gt;Hi friends!&lt;/p&gt;
+
+&lt;p&gt;I participated in the picoCTF 2023 organized by Carnegie Mellon University, Which was run from Mar 14 2023 to Mar 28 2023. 
+PicoCTF is a free online cybersecurity competition aimed at middle and high school students, but it’s also suitable for beginners of all ages. It was a great learning experience and I really learnt a lot.&lt;/p&gt;
+
+&lt;p&gt;Let me explain the challenges that I have solved in picoCTF 2023.&lt;/p&gt;
+
+&lt;h2 id=&quot;general-skills-&quot;&gt;&lt;a&gt;General Skills :&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;I solved all the challenges that were given !&lt;/p&gt;
+
+&lt;h2 id=&quot;chrono&quot;&gt;Chrono&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/chrono.png&quot; alt=&quot;chrono&quot; width=&quot;450&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Firstly, We have to launch the instance and connect to the server with given credentials.&lt;/p&gt;
+
+&lt;p&gt;Based on the question prompt it had to be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cron jobs&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;After various attempts to access crontab itself, I tried looking inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/crontab&lt;/code&gt; with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{Sch3DUL7NG_T45K3_L1NUX_1b4d8744}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;money-ware&quot;&gt;Money-ware&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/money-ware.png&quot; alt=&quot;money-ware&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I don’t know what it is but i’m googling &lt;a&gt;1Mz7153HMuxXTuR2R1t78mGSdzaAtNbBWX&lt;/a&gt;, I got the link which had reports with descriptions and one of those descriptions points us to:&lt;/p&gt;
+
+&lt;p&gt;More information is here : &lt;a href=&quot;https://blog.avira.com/petya-strikes-back/&quot; target=&quot;_blank&quot;&gt; https://blog.avira.com/petya-strikes-back/ &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is an article about a vulnerability called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Petya&lt;/code&gt; so our answer should be:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{petya}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;permissions&quot;&gt;Permissions&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/permissions.png&quot; alt=&quot;permissions&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We have to connect the server and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd / &lt;/code&gt;, I saw a directory named challenge, inside it there was a file which when cating it game the flag.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/permissions1.png&quot; alt=&quot;solution&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{uS1ng_v1m_3dit0r_021d10ab}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;repetitions&quot;&gt;Repetitions&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/repetitions.png&quot; alt=&quot;repetitions&quot; width=&quot;440&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The file itself looks like standard base64 encoding and decoding it will give you the flag use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cyberchef&lt;/code&gt;.
+I had to decode with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;base64&lt;/code&gt; six times to get the flag 😂&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{base64_n3st3d_dic0d!n8_d0wnl04d3d_dfe803c6}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;useless&quot;&gt;Useless&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/useless.png&quot; alt=&quot;useless&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In the home directory there is a file named useless.&lt;/p&gt;
+
+&lt;p&gt;After running the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man useless&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We got the flag,&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{us3l3ss_ch4ll3ng3_3xpl0it3d_3555}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;special&quot;&gt;Special&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/specialer.png&quot; alt=&quot;Special&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This challenge was hard and to come with this bash script.&lt;/p&gt;
+
+&lt;p&gt;My solution was as follows:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat flag.txt | cat /home/ctf-player/*/*.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{5p311ch3ck_15_7h3_w0r57_a60bdf40}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;specialer&quot;&gt;Specialer&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/special.png&quot; alt=&quot;Specialer&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Connecting into the shell we’re not allowed a lot of things like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat, ls....&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After a lot of tries,&lt;/p&gt;
+
+&lt;p&gt;My solution was as follows:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;echo &quot;$( &amp;lt; /home/ctf-player/ala/kazam.txt)&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we got the flag :&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{5p311ch3ck_15_7h3_w0r57_a60bdf40}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;cryptographhy-&quot;&gt;&lt;a&gt;Cryptographhy :&lt;/a&gt;&lt;/h2&gt;
+
+&lt;p&gt;Although I couldn’t solve all the challenges, I managed to solve some of the challenges that I knew how to do!&lt;/p&gt;
+
+&lt;h2 id=&quot;hidetosee&quot;&gt;HideToSee&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/hidetosee.png&quot; alt=&quot;HideToSee&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets download the file.&lt;/p&gt;
+
+&lt;p&gt;This is a jpeg file. We’ll be using a tool called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;steghide&lt;/code&gt; to extract information from this jpeg file, Use : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;steghide -sf --extract atbash.jpg&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Here we got a text file called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;encrypted.txt&lt;/code&gt;, Use : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat encrypted.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;krxlXGU{zgyzhs_xizxp_8z0uvwwx}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;It looks like flag but it’s not.&lt;/p&gt;
+
+&lt;p&gt;Now just need to decode atbash and you’re done&lt;/p&gt;
+
+&lt;p&gt;We got the flag,&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{atbash_crack_6c4bcb08}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;readmycert&quot;&gt;ReadMyCert&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/readmycert.png&quot; alt=&quot;ReadMyCert&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets download the file.&lt;/p&gt;
+
+&lt;p&gt;From the hint we were try to read the file. Bang !!
+&lt;img src=&quot;/assets/img/post_img/readmycert1.png&quot; alt=&quot;ReadMyCert&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And the flag is,&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{read_mycert_41d1c74c}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;rotation&quot;&gt;Rotation&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/rotation.png&quot; alt=&quot;rotation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets download the file and open with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat encrypted.txt&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;xqkwKBN{z0bib1wv_l3kzgxb3l_555957n3}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We got another encrypted text having the flag format. I got to know that this is a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;caesar cipher&lt;/code&gt;, so I used to decrypt with this &lt;a href=&quot;https://www.boxentriq.com/code-breaking/caesar-cipher&quot; target=&quot;_blank&quot;&gt;online tool&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It is a simple Rotation cipher, brute-forcing works fine.&lt;/p&gt;
+
+&lt;p&gt;Here is the flag,&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{r0tat1on_d3crypt3d_949af1a1}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;forensics-&quot;&gt;&lt;a&gt;Forensics :&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;hideme&quot;&gt;Hideme&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/hideme.png&quot; alt=&quot;rotation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets download the file and check file type with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exiftool&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ file flag.png        
+flag.png: PNG image data, 512 x 504, 8-bit/color RGBA, non-interlaced
+                                                                                                                                                                        
+┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ exiftool flag.png        
+ExifTool Version Number         : 12.57
+File Name                       : flag.png
+Directory                       : .
+File Size                       : 43 kB
+File Modification Date/Time     : 2023:03:22 19:38:37+01:00
+File Access Date/Time           : 2023:03:22 19:38:53+01:00
+File Inode Change Date/Time     : 2023:03:22 19:38:48+01:00
+File Permissions                : -rw-r--r--
+File Type                       : PNG
+File Type Extension             : png
+MIME Type                       : image/png
+Image Width                     : 512
+Image Height                    : 504
+Bit Depth                       : 8
+Color Type                      : RGB with Alpha
+Compression                     : Deflate/Inflate
+Filter                          : Adaptive
+Interlace                       : Noninterlaced
+Warning                         : [minor] Trailer data after PNG IEND chunk
+Image Size                      : 512x504
+Megapixels                      : 0.258
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This is a PNG, So we can observe the header using a tool called &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;zsteg&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌─[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└──╼ $zsteg flag.png 
+[?] 3191 bytes of extra data after image end (IEND), offset = 0x9b3b
+extradata:0         .. file: Zip archive data, at least v1.0 to extract
+    00000000: 50 4b 03 04 0a 00 00 00  00 00 3a 10 70 56 00 00  |PK........:.pV..|
+    00000010: 00 00 00 00 00 00 00 00  00 00 07 00 1c 00 73 65  |..............se|
+    00000020: 63 72 65 74 2f 55 54 09  00 03 8f 78 12 64 8f 78  |cret/UT....x.d.x|
+    00000030: 12 64 75 78 0b 00 01 04  00 00 00 00 04 00 00 00  |.dux............|
+    00000040: 00 50 4b 03 04 14 00 00  00 08 00 3a 10 70 56 67  |.PK........:.pVg|
+    00000050: 45 23 b5 35 0b 00 00 d0  0b 00 00 0f 00 1c 00 73  |E#.5...........s|
+    00000060: 65 63 72 65 74 2f 66 6c  61 67 2e 70 6e 67 55 54  |ecret/flag.pngUT|
+    00000070: 09 00 03 8f 78 12 64 8f  78 12 64 75 78 0b 00 01  |....x.d.x.dux...|
+    00000080: 04 00 00 00 00 04 00 00  00 00 cd 56 59 3c 14 fc  |...........VY&amp;lt;..|
+    00000090: 1a fe 87 b2 26 1f 22 5b  a3 65 1a 59 c6 30 76 33  |....&amp;amp;.&quot;[.e.Y.0v3|
+    000000a0: c4 47 92 35 44 f6 35 bb  6c 43 1a 65 64 49 85 10  |.G.5D.5.lC.edI..|
+    000000b0: 45 d9 3e 6a ec 63 9d 21  64 df 69 08 23 fb 12 45  |E.&amp;gt;j.c.!d.i.#..E|
+    000000c0: f6 65 2c 8d 8a 33 e7 77  ae ce c5 b9 3f ef c5 fb  |.e,..3.w....?...|
+    000000d0: bc db 73 f7 fe 9e df f3  cc d8 50 e7 34 9b 20 1b  |..s.......P.4. .|
+    000000e0: 00 e0 b4 ee 0d 2d 13 00  18 ee d0 6b 59 2e 7a 02  |.....-.....kY.z.|
+    000000f0: 7b 3e 57 cc e9 c0 e4 a6  61 a0 01 40 45 02 fb 6f  |{&amp;gt;W.....a..@E..o|
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Interesting 😎. So, I went ahead to unzip command : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unzip flag.png&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ unzip flag.png                          
+Archive:  flag.png
+warning [flag.png]:  39739 extra bytes at beginning or within zipfile
+  (attempting to process anyway)
+   creating: secret/
+  inflating: secret/flag.png         
+                                                                                                                                                                        
+┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ ls
+flag.png  secret
+                                                                                                                                                                        
+┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ cd secret   
+                                                                                                                                                                        
+┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files/secret]
+└─$ ls
+flag.png
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Now, Just you have to open &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag.png&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Yeah, we got the flag :&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{Hiddinng_An_imag3_within_@n_ima9e_82101824}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;pcappoisoning&quot;&gt;PcapPoisoning&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/pcappoisoning.png&quot; alt=&quot;rotation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets download the file&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ ls
+flag.png  secret  trace.pcap
+                                                                                                                                                                        
+┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ file trace.pcap 
+trace.pcap: pcap capture file, microsecond ts (little-endian) - version 2.4 (Raw IPv4, capture length 65535)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;This is a pcap file. So, We have to check through &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wireshark&lt;/code&gt;. But if possible we can find the flag using command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;grep&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;just checking with command : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strings trace.pcap | grep -i &quot;pico&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ strings trace.pcap | grep -i &quot;pico&quot;
+picoCTF{P64P_4N4L7S1S_SU55355FUL_31010c46}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Yayyy😉!, We got the flag :&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{P64P_4N4L7S1S_SU55355FUL_31010c46}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;reverse-engineering-&quot;&gt;&lt;a&gt;Reverse Engineering :&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;reverse&quot;&gt;Reverse&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/reverse.png&quot; alt=&quot;rotation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets download the file and check file type with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exiftool&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ file ret
+ret: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=7f12d7198b75bd4d9f159e7a45141d4f13836e51, for GNU/Linux 3.2.0, not stripped
+                                                                                                                                                                                                
+┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ exiftool ret           
+ExifTool Version Number         : 12.57
+File Name                       : ret
+Directory                       : .
+File Size                       : 17 kB
+File Modification Date/Time     : 2023:03:30 12:41:59+01:00
+File Access Date/Time           : 2023:03:30 12:42:27+01:00
+File Inode Change Date/Time     : 2023:03:30 12:42:01+01:00
+File Permissions                : -rw-r--r--
+File Type                       : ELF shared library
+File Type Extension             : so
+MIME Type                       : application/octet-stream
+CPU Architecture                : 64 bit
+CPU Byte Order                  : Little endian
+Object File Type                : Shared object file
+CPU Type                        : AMD x86-64
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Cool, It is an executable file, Once again we can check with the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strings ret | grep -i &quot;pico&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;We got the flag,&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag :  picoCTF{3lf_r3v3r5ing_succe55ful_fa9cb3b1}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;safe-opener-2&quot;&gt;Safe Opener 2&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/safeopener2.png&quot; alt=&quot;rotation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Lets download the file and check file type with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exiftool&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ file SafeOpener.class 
+SafeOpener.class: compiled Java class data, version 52.0 (Java 1.8)
+                                                                                                                                                                                                
+┌──[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└─$ exiftool SafeOpener.class 
+ExifTool Version Number         : 12.57
+File Name                       : SafeOpener.class
+Directory                       : .
+File Size                       : 2.0 kB
+File Modification Date/Time     : 2023:03:30 12:46:01+01:00
+File Access Date/Time           : 2023:03:30 12:46:24+01:00
+File Inode Change Date/Time     : 2023:03:30 12:46:16+01:00
+File Permissions                : -rw-r--r--
+File Type                       : Java bytecode
+File Type Extension             : class
+MIME Type                       : application/java-byte-code
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Just like before challenge, We’ll be checking with the strings command :
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;strings SafeOpener.class | grep -i &quot;pico&quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Coooooool, we got the flag.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{SAf3_0p3n3rr_y0u_solv3d_it_198203f7}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;binary-exploitation-&quot;&gt;&lt;a&gt;Binary Exploitation :&lt;/a&gt;&lt;/h2&gt;
+
+&lt;h2 id=&quot;two-sum&quot;&gt;Two-Sum&lt;/h2&gt;
+
+&lt;p&gt;Here is the given challenge :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/two-sum.png&quot; alt=&quot;rotation&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Trying it locally works and the reason is beacause the maximum value of a signed integer is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2147483647&lt;/code&gt; so giving it &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; goes above the maximum value.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌─[m4r10@parrot]─[/media/sf_CyberSec/task_files]
+└──╼ $nc saturn.picoctf.net 52197.
+n1 &amp;gt; n1 + n2 OR n2 &amp;gt; n1 + n2 
+What two positive numbers can make this possible: 
+2147483647
+1
+You entered 2147483647 and 1
+You have an integer overflow
+YOUR FLAG IS: picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_fe14e9e9}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Yahooo !, We got the flag😎&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_bc0adfd1}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>VishwaCTF</title>
+   <link href="https://th3m4r10.github.io/2023/04/02/vishwactf"/>
+   <updated>2023-04-02T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/04/02/VishwaCTF</id>
+   <content type="html">&lt;p&gt;Loading…&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>WolvCTF 2023</title>
+   <link href="https://th3m4r10.github.io/2023/03/20/wolvctf"/>
+   <updated>2023-03-20T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/03/20/WolvCTF</id>
+   <content type="html">&lt;p&gt;Hi friends!&lt;/p&gt;
+
+&lt;p&gt;It’s my first CTF. Feeling excited and a little bit worrying too !&lt;/p&gt;
+
+&lt;p&gt;I played &lt;a href=&quot;https://wolvctf.io/&quot;&gt;WolvCTF&lt;/a&gt; 2023 with &lt;a href=&quot;https://ctftime.org/team/217079&quot; target=&quot;_blank&quot;&gt;Invaders0x1&lt;/a&gt; which is held from 17 March 2023, 20:00 UTC — Sun, 19 March 2023, 20:00&lt;/p&gt;
+
+&lt;h1 id=&quot;beginner-&quot;&gt;&lt;a&gt;Beginner &lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;Let me explain the challenges I have solved in WolvCTF 2023.&lt;/p&gt;
+
+&lt;h2 id=&quot;charlottes-web&quot;&gt;Charlotte’s Web&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/CTF/WolvCTF]
+└─$ curl https://charlotte-tlejfksioa-ul.a.run.app/                                           
+&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;title&amp;gt;index&amp;lt;/title&amp;gt;
+&amp;lt;script&amp;gt;
+  function start() {
+    alert(&quot;where&apos;s the flag? i swear it was around here somewhere&quot;);
+  }
+&amp;lt;/script&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;button onclick=&apos;start()&apos;&amp;gt;click me for the flag&amp;lt;/button&amp;gt;
+&amp;lt;!-- /src --&amp;gt;
+&amp;lt;/body&amp;gt;
+
+&amp;lt;/html&amp;gt;
+
+                                                                                                                                                                             
+┌──[m4r10@parrot]─[/media/sf_CyberSec/CTF/WolvCTF]
+└─$ curl https://charlotte-tlejfksioa-ul.a.run.app/src
+
+import flask
+
+app = flask.Flask(__name__)
+
+@app.route(&apos;/&apos;, methods=[&apos;GET&apos;])
+def index():
+  return flask.send_file(&apos;index.html&apos;)
+
+@app.route(&apos;/src&apos;, methods=[&apos;GET&apos;])
+def source():
+  return flask.send_file(&apos;app.py&apos;)
+
+@app.route(&apos;/super-secret-route-nobody-will-guess&apos;, methods=[&apos;PUT&apos;])
+def flag():
+  return open(&apos;flag&apos;).read()
+                                                                                                                                                                                      
+┌──[m4r10@parrot]─[/media/sf_CyberSec/CTF/WolvCTF]
+└─$ curl https://charlotte-tlejfksioa-ul.a.run.app//super-secret-route-nobody-will-guess -X PUT
+wctf{y0u_h4v3_b33n_my_fr13nd___th4t_1n_1t53lf_1s_4_tr3m3nd0u5_th1ng}  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : wctf{y0u_h4v3_b33n_my_fr13nd___th4t_1n_1t53lf_1s_4_tr3m3nd0u5_th1ng}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;baby-re&quot;&gt;Baby re&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;strings baby-re | grep wctf
+wctf{Oh10_Stat3_1s_Smelly!}
+wctf{Must_be_fr0m_OSU}
+wctf{A_t0tally_fake_flag}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;By guessing I took &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wctf{Oh10_Stat3_1s_Smelly!}&lt;/code&gt; and It was the right flag&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : wctf{Oh10_Stat3_1s_Smelly!}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;we-will-rock-you&quot;&gt;We will rock you&lt;/h2&gt;
+
+&lt;p&gt;The challenge gave us a protected zip file. Then, we crack it with john and the rockyou wordlist :&lt;/p&gt;
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/CTF/WolvCTF]
+└─$ zip2john we_will_rock_you.zip &amp;gt; zip.hashes                 
+Created directory: /home/kali/.john
+ver 1.0 we_will_rock_you.zip/we_will_rock_you/ is not encrypted, or stored with non-handled compression type
+ver 1.0 efh 5455 efh 7875 we_will_rock_you.zip/we_will_rock_you/flag.txt PKZIP Encr: 2b chk, TS_chk, cmplen=33, decmplen=21, crc=7D20D45F ts=B816 cs=b816 type=0
+                                                                                                                                                                                      
+┌──[m4r10@parrot]─[/media/sf_CyberSec/CTF/WolvCTF]
+└─$ john --wordlist=/usr/share/wordlists/rockyou.txt zip.hashes
+Using default input encoding: UTF-8
+Loaded 1 password hash (PKZIP [32/64])
+Will run 2 OpenMP threads
+Press &apos;q&apos; or Ctrl-C to abort, almost any other key for status
+michigan4ever    (we_will_rock_you.zip/we_will_rock_you/flag.txt)     
+1g 0:00:00:00 DONE (2023-03-20 17:35) 1.176g/s 6548Kp/s 6548Kc/s 6548KC/s mickovgys..michellsmg
+Use the &quot;--show&quot; option to display all of the cracked passwords reliably
+Session completed. 
+
+┌──[m4r10@parrot]─[/media/sf_CyberSec/CTF/WolvCTF]
+└─$ cat we_will_rock_you/flag.txt 
+wctf{m1cH1g4n_4_3v3R} 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : wctf{m1cH1g4n_4_3v3R}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</content>
+ </entry>
+ 
+
+</feed>
