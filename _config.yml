@@ -10,12 +10,12 @@ data-theme: dark # default theme "dark" | "light"
 discus-identifier: m4r10 # replace with your disqus shortname
 
 author:
-  name: m4r10
+  name: M4r10
   bio: just a minimalist, personal blog
   userpicture: 
-  username: # general username
-  github: # github username
-  twitter: # twitter username
+  username: th3m4r10# general username
+  github: Th3M4r10# github username
+  twitter: Th3M4r10_# twitter username
   email: muraligari2365@gmail.com # email adress
 
 # Font Settings

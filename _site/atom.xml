@@ -4,13 +4,22 @@
  <title>M4r10's Blog</title>
  <link href="https://th3m4r10.github.io/atom.xml" rel="self"/>
  <link href="https://th3m4r10.github.io/"/>
- <updated>2023-04-21T06:00:54+00:00</updated>
+ <updated>2023-04-21T07:54:13+00:00</updated>
  <id>https://th3m4r10.github.io</id>
  <author>
-   <name>m4r10</name>
+   <name>M4r10</name>
    <email>muraligari2365@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>JerseyCTF III</title>
+   <link href="https://th3m4r10.github.io/2023/04/15/jerseyctf"/>
+   <updated>2023-04-15T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/04/15/JerseyCTF</id>
+   <content type="html">&lt;p&gt;Loading…&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>PicoCTF 2023</title>
@@ -469,7 +478,7 @@ YOUR FLAG IS: picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_fe14e9e9}
 
 &lt;p&gt;I played &lt;a href=&quot;https://wolvctf.io/&quot;&gt;WolvCTF&lt;/a&gt; 2023 with &lt;a href=&quot;https://ctftime.org/team/217079&quot; target=&quot;_blank&quot;&gt;Invaders0x1&lt;/a&gt; which is held from 17 March 2023, 20:00 UTC — Sun, 19 March 2023, 20:00&lt;/p&gt;
 
-&lt;h1 id=&quot;beginner-&quot;&gt;&lt;a&gt;Beginner &lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id=&quot;-beginner-&quot;&gt;&lt;a&gt; Beginner &lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;Let me explain the challenges I have solved in WolvCTF 2023.&lt;/p&gt;
 

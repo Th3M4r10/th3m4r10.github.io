@@ -1,6 +1,15 @@
 [
   
     {
+      "title"    : "JerseyCTF III",
+      "description" : "",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/2023/04/15/jerseyctf",
+      "date"     : "2023-04-15 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "PicoCTF 2023",
       "description" : "",
       "category" : "",
