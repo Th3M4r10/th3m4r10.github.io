@@ -1,0 +1,102 @@
+I"
+<p>Hello mates!</p>
+
+<p>I played <a href="https://ctf.jerseyctf.com/" target="_blank">JerseyCTF III</a> which was hosted by the <a style="color:cyan;">NJIT ACM</a> along with my team <a>Invaders0x1</a>.Our team achieved a commendable 125th place in the CTF competition, and we are determined to strive for even better results in future competitions.</p>
+
+<p>Here are some of the challenges I have solved :</p>
+
+<h3 id="back-to-the-office">back-to-the-office</h3>
+
+<p>Challenge details :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>There's a flag somewhere in this Microsoft Word document.
+</code></pre></div></div>
+
+<p>Hint :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Newer Microsoft Office files are in OOXML format. Learn more about this file format to find the flag.
+</code></pre></div></div>
+
+<p>Here is the attached file <a href="/assets/files/jerseyCTF/back-to-the-office.docx" download="">back-to-the-office.docx</a>.</p>
+
+<p>Download the given file and extract with the command <code class="language-plaintext highlighter-rouge">unzip back-to-the-office.docx</code></p>
+
+<p>And to check directories use <code class="language-plaintext highlighter-rouge">tree *</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>m4r10@ARLinux:~/Desktop/CyberSec/CTF/jerseyCTF/misc$ tree *
+back-to-the-office.docx  [error opening dir]
+[Content_Types].xml  [error opening dir]
+docProps
+├── app.xml
+└── core.xml
+_rels
+word
+├── document.xml
+├── fontTable.xml
+├── _rels
+│   └── document.xml.rels
+├── settings.xml
+├── styles.xml
+├── theme
+│   └── theme1.xml
+└── webSettings.xml
+</code></pre></div></div>
+
+<p>After that run the command <code class="language-plaintext highlighter-rouge">cat word/settings.xml</code></p>
+
+<p>Yayy, you got the flag at the end of the xml code.</p>
+
+<blockquote>
+  <p><em><code class="language-plaintext highlighter-rouge">Flag : jctf{601n6_1n70_7h3_0ff1c3}</code></em></p>
+</blockquote>
+
+<h3 id="put-the-cookie-down">put-the-cookie-down</h3>
+
+<p>Challenge details :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The Terminator has sent you a frantic message from 1996, maybe it's something important! Wait... do I smell cookies?
+Flag format: jctf{string}
+</code></pre></div></div>
+<p>Here are the steps I followed:</p>
+
+<p>-Open your browser DevTools<br />
+-As the hint suggests, we will be exploring DevTools a bit deeper<br />
+-Navigate to the Application tab<br />
+-On the left side of the Application tab, go to <code class="language-plaintext highlighter-rouge">Storage &gt; Cookies</code><br />
+-Click on the website’s URL to see the cookie data.</p>
+
+<p>Or otherwise you can simply open cookies to check the flag,</p>
+
+<p><img src="/assets/img/post_img/put-the-cookie-down.png" alt="Payload" /></p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">Flag: jctf{I_WILL_BE_BACK_FOR_MORE_C00KI3S!}</code></p>
+</blockquote>
+
+<h3 id="back-to-socials">back-to-socials</h3>
+
+<p>Challenge details :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The NICC club that co-hosts this event jumped into the NCAE Cyber Games this past February and placed well for the first time competing as a club! The club wanted to let everyone at the school know of their successes and were very social! Can you dig deep and find out where this flag could be planted?
+</code></pre></div></div>
+
+<p>Hint :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>There is usually some sort of website that people can share their achievements to a professional crowd...
+</code></pre></div></div>
+
+<p>From this hint,</p>
+
+<p>I have decided to search for the <em><code class="language-plaintext highlighter-rouge">NICC Competes in their first NCAE Cyber Games</code></em> post on LinkedIn.<br />
+And here is the result with post link,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://www.linkedin.com/pulse/nicc-competes-first-ncae-cyber-games-njiticc/
+</code></pre></div></div>
+
+<p><img src="/assets/img/post_img/back-to-socials.png" alt="Payload" /></p>
+
+<blockquote>
+  <p><em><code class="language-plaintext highlighter-rouge">Flag : jctf{c0mp3titi0n_spark5_excellency}</code></em></p>
+</blockquote>
+
+:ET

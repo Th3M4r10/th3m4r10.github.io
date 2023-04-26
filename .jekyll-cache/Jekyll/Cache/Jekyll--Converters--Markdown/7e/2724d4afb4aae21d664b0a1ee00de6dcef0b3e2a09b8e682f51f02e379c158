@@ -1,0 +1,116 @@
+I"h<p>Hi Mates!</p>
+
+<p>I played this CTF as usually along with my team <a href="https://ctftime.org/team/217079">Invaders0x1</a>. During the competition, my team and I worked tirelessly without taking a break from Fri, 21 April 2023, 22:30 IST — Sun, 23 April 2023, 22:30 IST.<br />
+Proud to share our team ranked <a style="color: cyan;" href="https://ctftime.org/event/1974" target="_blank">#Top6</a> globally in <a>DawgCTF2023</a> which was hosted by <a style="color: cyan;" href="https://umbccd.umbc.edu/">UMBCCyberDawgs</a>.
+We faced tough competition from some of the best teams in the world, but we were determined to succeed.
+Despite the difficulty of the task, our team persevered and came up with a creative solution.</p>
+
+<p><img src="/assets/img/post_img/dawgctf_scoreboard.jpg" alt="scoreboard" height="700" /></p>
+
+<p>Overall, we are grateful for the experience and proud of our achievement. We will continue to work hard and strive for excellence in future competitions.<br />
+Our team knows that <a>#persistence</a> is key to success, and we will continue to demonstrate that in everything we do.</p>
+
+<p>Here are some of the challenges I have solved :</p>
+
+<h3 id="breaker-breaker">Breaker, Breaker</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>I got this radio recording of a local police department using my trusty scanner, can you figure out what all those fancy numbers mean?
+</code></pre></div></div>
+
+<p><a href="https://drive.google.com/file/d/118-1GWC7F0he5EVhF6jnGUmu7CbBaSnD/view" target="_blank"> View Files Here</a>  👈</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(The flag will be in alphabetical format only and you will enclose it in DawgCTF, i.e DawgCTF{FLAGGERT}
+</code></pre></div></div>
+
+<p>After downloading the <strong>40-second</strong> audio file, I have been listening to this audio for nearly <strong>1 hour</strong> in an attempt to understand and identify the number digits in the audio.<br />
+However, I have not been successful in identifying the exact number digits. As a result, I decided to use online tools like <strong>Flixier</strong> to generate a transcript (i.e., convert audio to text), but it gave worse results than what I was able to do myself 🥲.●</p>
+
+<p>Again I was decided to do myself. And the result is <br /></p>
+
+<p><strong>Step-1: [10-1-8, 10-7, 10-0, 10-17, 10-15, 10-4, 10-0, 10-1-7, 10-18 And 65 ]</strong></p>
+
+<p><strong>Step-2: [10-18, 10-7, 10-0, 10-17, 10-15, 10-4, 10-0, 10-17, 10-18 And 65]</strong></p>
+
+<p><strong>Step-3: [18, 7, 0, 17, 15, 4, 0, 17, 18 And 65]</strong></p>
+
+<p><strong>Step-4: [18, 7, 0, 17, 15, 4, 0, 17, 18, A]</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Here 65 is the hint, i.e., 65 = A in ASCII
+</code></pre></div></div>
+
+<p>After spending whole day with different ways to decode the sequence,</p>
+
+<p>Finally figured something good.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>i.e., Add 65 to all numbers
+</code></pre></div></div>
+
+<p><strong>Step-5: [18+65 7+65 0+65 17+65 15+65 4+65 0+65 17+65 18+65]</strong></p>
+
+<p><strong>Step-6: [ 83 72 65 82 80 69 65 82 83 ]</strong></p>
+
+<p>To convert Decimal to Ascii :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>decimal_values = [83, 72, 65, 82, 80, 69, 65, 82, 83]
+ascii_string = ''.join([chr(decimal) for decimal in decimal_values])
+print(ascii_string)
+</code></pre></div></div>
+
+<p>Output : S H A R P E A R S</p>
+
+<blockquote>
+  <p><em><strong><code class="language-plaintext highlighter-rouge">Flag : DawgCTF{SHARPEARS}</code></strong></em></p>
+</blockquote>
+
+<hr />
+
+<h3 id="oh-deer">Oh, Deer</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My friend sent me a bunch of pictures of deer and said there's a secret code in them or something. Can you figure out what he's talking about? He mentioned something about going from left to right in order and that there's only two types of a thing in all the pictures. He also said that it's not zeroes and ones, but wouldn't tell me what other two things it would be if not zero and one.
+
+The flag will be in the format DawgCTF{THEFLAG}, alphabetical only, all capitals for the contents inside DawgCTF{}.
+</code></pre></div></div>
+
+<p><a href="https://drive.google.com/file/d/1e2Sou85uToT-31kg3HWaVV11yVmcVD6N/view" target="_blank"> View Files Here</a>  👈
+After extracting the ohdeer.zip file, we obtained 0-24 deer images, with each image containing 2 deers.<br />
+By observing the images, we can differentiate between the sexes of the deer.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>From left to right:
+(F)  (M)
+(M)  (F)
+(M)  (M)
+(F)  (F)
+</code></pre></div></div>
+
+<p>We have obtained the final sequence form all images :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FM MF MF MM MF MF FF MF FM FF FM FF FF MM FM FF FM MF FM FF FF MF FM FF FM
+</code></pre></div></div>
+
+<p>This is the <strong><code class="language-plaintext highlighter-rouge">Baconian Cipher</code></strong>,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FMMFM FMMMF MFFFM FFMFF FMFFF FMMFM FFFMM FFMFF FFMFF MFFFM
+</code></pre></div></div>
+
+<p>Using <a href="https://www.dcode.fr/bacon-cipher">dCode</a> we can decrypt <strong>Cipher text</strong> and obtain <strong>Plain text</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N O R E I N D E E R
+</code></pre></div></div>
+
+<p>And here is the flag,</p>
+
+<blockquote>
+  <p><strong><code class="language-plaintext highlighter-rouge">Flag : DawgCTF{NOREINDEER}</code></strong></p>
+</blockquote>
+
+<hr />
+
+<h3 id="yo-dawg">Yo Dawg</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Yo Dawg, we heard you like flags, so we put a flag in your memes.
+</code></pre></div></div>
+
+<p>&lt;a href=”https://drive.google.com/file/d/1PlajwJ5IzRsFhk9BV0EaMRrT6yAwA-FG/view”target=”_blank”&gt;View Files Here&lt;/a&gt;</p>
+
+<p><img src="/assets/img/post_img/yo_dawg.png" alt="yo_dawg" /></p>
+:ET

@@ -4,7 +4,7 @@
  <title>M4r10's Blog</title>
  <link href="https://th3m4r10.github.io/atom.xml" rel="self"/>
  <link href="https://th3m4r10.github.io/"/>
- <updated>2023-04-21T07:54:13+00:00</updated>
+ <updated>2023-04-26T19:29:18+00:00</updated>
  <id>https://th3m4r10.github.io</id>
  <author>
    <name>M4r10</name>
@@ -13,11 +13,290 @@
 
  
  <entry>
+   <title>DawgCTF 2023</title>
+   <link href="https://th3m4r10.github.io/2023/04/24/dawgctf"/>
+   <updated>2023-04-24T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/04/24/DawgCTF</id>
+   <content type="html">&lt;p&gt;Hi Mates!&lt;/p&gt;
+
+&lt;p&gt;I played this CTF as usually along with my team &lt;a href=&quot;https://ctftime.org/team/217079&quot;&gt;Invaders0x1&lt;/a&gt;. During the competition, my team and I worked tirelessly without taking a break from Fri, 21 April 2023, 22:30 IST — Sun, 23 April 2023, 22:30 IST.&lt;br /&gt;
+Proud to share our team ranked &lt;a style=&quot;color: cyan;&quot; href=&quot;https://ctftime.org/event/1974&quot; target=&quot;_blank&quot;&gt;#Top6&lt;/a&gt; globally in &lt;a&gt;DawgCTF2023&lt;/a&gt; which was hosted by &lt;a style=&quot;color: cyan;&quot; href=&quot;https://umbccd.umbc.edu/&quot;&gt;UMBCCyberDawgs&lt;/a&gt;.
+We faced tough competition from some of the best teams in the world, but we were determined to succeed.
+Despite the difficulty of the task, our team persevered and came up with a creative solution.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/dawgctf_scoreboard.jpg&quot; alt=&quot;scoreboard&quot; height=&quot;700&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Overall, we are grateful for the experience and proud of our achievement. We will continue to work hard and strive for excellence in future competitions.&lt;br /&gt;
+Our team knows that &lt;a&gt;#persistence&lt;/a&gt; is key to success, and we will continue to demonstrate that in everything we do.&lt;/p&gt;
+
+&lt;p&gt;Here are some of the challenges I have solved :&lt;/p&gt;
+
+&lt;h3 id=&quot;breaker-breaker&quot;&gt;Breaker, Breaker&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/breaker_breaker.png&quot; alt=&quot;Breaker, Breaker &quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;I got this radio recording of a local police department using my trusty scanner, can you figure out what all those fancy numbers mean?
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/118-1GWC7F0he5EVhF6jnGUmu7CbBaSnD/view&quot; target=&quot;_blank&quot;&gt; View Files Here&lt;/a&gt;  👈&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(The flag will be in alphabetical format only and you will enclose it in DawgCTF, i.e DawgCTF{FLAGGERT}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After downloading the &lt;strong&gt;40-second&lt;/strong&gt; audio file, I have been listening to this audio for nearly &lt;strong&gt;1 hour&lt;/strong&gt; in an attempt to understand and identify the number digits in the audio.&lt;br /&gt;
+However, I have not been successful in identifying the exact number digits. As a result, I decided to use online tools like &lt;strong&gt;Flixier&lt;/strong&gt; to generate a transcript (i.e., convert audio to text), but it gave worse results than what I was able to do myself 🥲.●&lt;/p&gt;
+
+&lt;p&gt;Again I was decided to do myself. And the result is &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step-1: [10-1-8, 10-7, 10-0, 10-17, 10-15, 10-4, 10-0, 10-1-7, 10-18 And 65 ]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step-2: [10-18, 10-7, 10-0, 10-17, 10-15, 10-4, 10-0, 10-17, 10-18 And 65]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step-3: [18, 7, 0, 17, 15, 4, 0, 17, 18 And 65]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step-4: [18, 7, 0, 17, 15, 4, 0, 17, 18, A]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Here 65 is the hint, i.e., 65 = A in ASCII
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After spending whole day with different ways to decode the sequence,&lt;/p&gt;
+
+&lt;p&gt;Finally figured something good.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;i.e., Add 65 to all numbers
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Step-5: [18+65 7+65 0+65 17+65 15+65 4+65 0+65 17+65 18+65]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step-6: [ 83 72 65 82 80 69 65 82 83 ]&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To convert Decimal to Ascii :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;decimal_values = [83, 72, 65, 82, 80, 69, 65, 82, 83]
+ascii_string = &apos;&apos;.join([chr(decimal) for decimal in decimal_values])
+print(ascii_string)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output : S H A R P E A R S&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : DawgCTF{SHARPEARS}&lt;/code&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;oh-deer&quot;&gt;Oh, Deer&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/oh_deer.png&quot; alt=&quot;Oh, Deer &quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;My friend sent me a bunch of pictures of deer and said there&apos;s a secret code in them or something. Can you figure out what he&apos;s talking about? He mentioned something about going from left to right in order and that there&apos;s only two types of a thing in all the pictures. He also said that it&apos;s not zeroes and ones, but wouldn&apos;t tell me what other two things it would be if not zero and one.
+
+The flag will be in the format DawgCTF{THEFLAG}, alphabetical only, all capitals for the contents inside DawgCTF{}.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/1e2Sou85uToT-31kg3HWaVV11yVmcVD6N/view&quot; target=&quot;_blank&quot;&gt; View Files Here&lt;/a&gt;  👈
+After extracting the ohdeer.zip file, we obtained 0-24 deer images, with each image containing 2 deers.&lt;br /&gt;
+By observing the images, we can differentiate between the sexes of the deer.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;From left to right:
+(F)  (M)
+(M)  (F)
+(M)  (M)
+(F)  (F)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;We have obtained the final sequence form all images :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FM MF MF MM MF MF FF MF FM FF FM FF FF MM FM FF FM MF FM FF FF MF FM FF FM
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Baconian Cipher&lt;/code&gt;&lt;/strong&gt;,&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;FMMFM FMMMF MFFFM FFMFF FMFFF FMMFM FFFMM FFMFF FFMFF MFFFM
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Using &lt;a href=&quot;https://www.dcode.fr/bacon-cipher&quot;&gt;dCode&lt;/a&gt; we can decrypt &lt;strong&gt;Cipher text&lt;/strong&gt; and obtain &lt;strong&gt;Plain text&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;N O R E I N D E E R
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And here is the flag,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : DawgCTF{NOREINDEER}&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;yo-dawg&quot;&gt;Yo Dawg&lt;/h3&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Yo Dawg, we heard you like flags, so we put a flag in your memes.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/1PlajwJ5IzRsFhk9BV0EaMRrT6yAwA-FG/view&quot; target=&quot;_blank&quot;&gt;View Files Here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Using command : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;exiftool yo_dawg.jpg&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;m4r10@ARLinux:~/Desktop/CyberSec/CTF/DawgCTF/forensic$ exiftool yo_dawg.jpg 
+ExifTool Version Number         : 12.40
+File Name                       : yo_dawg.jpg
+Directory                       : .
+File Size                       : 41 KiB
+File Modification Date/Time     : 2023:04:22 10:49:38+05:30
+File Access Date/Time           : 2023:04:22 10:52:46+05:30
+File Inode Change Date/Time     : 2023:04:22 10:50:01+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : None
+X Resolution                    : 72
+Y Resolution                    : 72
+Image Width                     : 622
+Image Height                    : 401
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 622x401
+Megapixels                      : 0.249
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Bu using &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stegsolver&lt;/code&gt;&lt;/strong&gt;&lt;br /&gt;
+We can,&lt;br /&gt;
+Analyze color channels to identify hidden data,&lt;br /&gt;
+Extract and analyzing metadata embedded in the image file,&lt;br /&gt;
+Apply various filters to the image to highlight hidden information,&lt;br /&gt;
+Check for unusual patterns or anomalies in the image.&lt;/p&gt;
+
+&lt;p&gt;Finally, After changing the &lt;strong&gt;Frame&lt;/strong&gt; obtained the flag.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/yo_dawg.png&quot; alt=&quot;yo_dawg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And the flag is,&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : DawgCTF{h342d_y0u_11k3_f1495_d4w9}&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>JerseyCTF III</title>
-   <link href="https://th3m4r10.github.io/2023/04/15/jerseyctf"/>
-   <updated>2023-04-15T00:00:00+00:00</updated>
-   <id>https://th3m4r10.github.io/2023/04/15/JerseyCTF</id>
-   <content type="html">&lt;p&gt;Loading…&lt;/p&gt;
+   <link href="https://th3m4r10.github.io/2023/04/18/jerseyctf"/>
+   <updated>2023-04-18T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/04/18/JerseyCTF</id>
+   <content type="html">&lt;p&gt;Hello mates!&lt;/p&gt;
+
+&lt;p&gt;I played &lt;a href=&quot;https://ctf.jerseyctf.com/&quot; target=&quot;_blank&quot;&gt;JerseyCTF III&lt;/a&gt; which was hosted by the &lt;a style=&quot;color:cyan;&quot;&gt;NJIT ACM&lt;/a&gt; along with my team &lt;a&gt;Invaders0x1&lt;/a&gt;.Our team achieved a commendable 125th place in the CTF competition, and we are determined to strive for even better results in future competitions.&lt;/p&gt;
+
+&lt;p&gt;Here are some of the challenges I have solved :&lt;/p&gt;
+
+&lt;h3 id=&quot;back-to-the-office&quot;&gt;back-to-the-office&lt;/h3&gt;
+
+&lt;p&gt;Challenge details :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There&apos;s a flag somewhere in this Microsoft Word document.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hint :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Newer Microsoft Office files are in OOXML format. Learn more about this file format to find the flag.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Here is the attached file &lt;a href=&quot;/assets/files/jerseyCTF/back-to-the-office.docx&quot; download=&quot;&quot;&gt;back-to-the-office.docx&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Download the given file and extract with the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unzip back-to-the-office.docx&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;And to check directories use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tree *&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;m4r10@ARLinux:~/Desktop/CyberSec/CTF/jerseyCTF/misc$ tree *
+back-to-the-office.docx  [error opening dir]
+[Content_Types].xml  [error opening dir]
+docProps
+├── app.xml
+└── core.xml
+_rels
+word
+├── document.xml
+├── fontTable.xml
+├── _rels
+│   └── document.xml.rels
+├── settings.xml
+├── styles.xml
+├── theme
+│   └── theme1.xml
+└── webSettings.xml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;After that run the command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cat word/settings.xml&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Yayy, you got the flag at the end of the xml code.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : jctf{601n6_1n70_7h3_0ff1c3}&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;put-the-cookie-down&quot;&gt;put-the-cookie-down&lt;/h3&gt;
+
+&lt;p&gt;Challenge details :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The Terminator has sent you a frantic message from 1996, maybe it&apos;s something important! Wait... do I smell cookies?
+Flag format: jctf{string}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Here are the steps I followed:&lt;/p&gt;
+
+&lt;p&gt;-Open your browser DevTools&lt;br /&gt;
+-As the hint suggests, we will be exploring DevTools a bit deeper&lt;br /&gt;
+-Navigate to the Application tab&lt;br /&gt;
+-On the left side of the Application tab, go to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Storage &amp;gt; Cookies&lt;/code&gt;&lt;br /&gt;
+-Click on the website’s URL to see the cookie data.&lt;/p&gt;
+
+&lt;p&gt;Or otherwise you can simply open cookies to check the flag,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/put-the-cookie-down.png&quot; alt=&quot;Payload&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag: jctf{I_WILL_BE_BACK_FOR_MORE_C00KI3S!}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;back-to-socials&quot;&gt;back-to-socials&lt;/h3&gt;
+
+&lt;p&gt;Challenge details :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The NICC club that co-hosts this event jumped into the NCAE Cyber Games this past February and placed well for the first time competing as a club! The club wanted to let everyone at the school know of their successes and were very social! Can you dig deep and find out where this flag could be planted?
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Hint :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;There is usually some sort of website that people can share their achievements to a professional crowd...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;From this hint,&lt;/p&gt;
+
+&lt;p&gt;I have decided to search for the &lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NICC Competes in their first NCAE Cyber Games&lt;/code&gt;&lt;/em&gt; post on LinkedIn.&lt;br /&gt;
+And here is the result with post link,&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://www.linkedin.com/pulse/nicc-competes-first-ncae-cyber-games-njiticc/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/back-to-socials.png&quot; alt=&quot;Payload&quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : jctf{c0mp3titi0n_spark5_excellency}&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>CursedCTF 2023</title>
+   <link href="https://th3m4r10.github.io/2023/04/11/cursedctf"/>
+   <updated>2023-04-11T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/04/11/cursedCTF</id>
+   <content type="html">&lt;p&gt;Hi Mates!&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -26,9 +305,9 @@
    <link href="https://th3m4r10.github.io/2023/04/04/picoctf2023"/>
    <updated>2023-04-04T00:00:00+00:00</updated>
    <id>https://th3m4r10.github.io/2023/04/04/picoCTF2023</id>
-   <content type="html">&lt;p&gt;Hi friends!&lt;/p&gt;
+   <content type="html">&lt;p&gt;Hi Mates!&lt;/p&gt;
 
-&lt;p&gt;I participated in the picoCTF 2023 organized by Carnegie Mellon University, Which was run from Mar 14 2023 to Mar 28 2023. 
+&lt;p&gt;I participated in the &lt;a&gt;picoCTF 2023&lt;/a&gt; organized by &lt;a style=&quot;color:cyan;&quot; href=&quot;https://www.cmu.edu/&quot;&gt;Carnegie Mellon University&lt;/a&gt;, Which was run from Mar 14 2023 to Mar 28 2023. 
 PicoCTF is a free online cybersecurity competition aimed at middle and high school students, but it’s also suitable for beginners of all ages. It was a great learning experience and I really learnt a lot.&lt;/p&gt;
 
 &lt;p&gt;Let me explain the challenges that I have solved in picoCTF 2023.&lt;/p&gt;
@@ -37,7 +316,7 @@ PicoCTF is a free online cybersecurity competition aimed at middle and high scho
 
 &lt;p&gt;I solved all the challenges that were given !&lt;/p&gt;
 
-&lt;h2 id=&quot;chrono&quot;&gt;Chrono&lt;/h2&gt;
+&lt;h3 id=&quot;chrono&quot;&gt;Chrono&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -55,7 +334,7 @@ PicoCTF is a free online cybersecurity competition aimed at middle and high scho
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;money-ware&quot;&gt;Money-ware&lt;/h2&gt;
+&lt;h3 id=&quot;money-ware&quot;&gt;Money-ware&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -73,7 +352,7 @@ PicoCTF is a free online cybersecurity competition aimed at middle and high scho
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;permissions&quot;&gt;Permissions&lt;/h2&gt;
+&lt;h3 id=&quot;permissions&quot;&gt;Permissions&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -89,7 +368,7 @@ PicoCTF is a free online cybersecurity competition aimed at middle and high scho
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;repetitions&quot;&gt;Repetitions&lt;/h2&gt;
+&lt;h3 id=&quot;repetitions&quot;&gt;Repetitions&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -104,7 +383,7 @@ I had to decode with &lt;code class=&quot;language-plaintext highlighter-rouge&q
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;useless&quot;&gt;Useless&lt;/h2&gt;
+&lt;h3 id=&quot;useless&quot;&gt;Useless&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -121,7 +400,7 @@ I had to decode with &lt;code class=&quot;language-plaintext highlighter-rouge&q
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;special&quot;&gt;Special&lt;/h2&gt;
+&lt;h3 id=&quot;special&quot;&gt;Special&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -136,9 +415,9 @@ I had to decode with &lt;code class=&quot;language-plaintext highlighter-rouge&q
   &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : picoCTF{5p311ch3ck_15_7h3_w0r57_a60bdf40}&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;hr /&gt;
+&lt;p&gt;*** &lt;br /&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;specialer&quot;&gt;Specialer&lt;/h2&gt;
+&lt;h3 id=&quot;specialer&quot;&gt;Specialer&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -162,7 +441,7 @@ I had to decode with &lt;code class=&quot;language-plaintext highlighter-rouge&q
 
 &lt;p&gt;Although I couldn’t solve all the challenges, I managed to solve some of the challenges that I knew how to do!&lt;/p&gt;
 
-&lt;h2 id=&quot;hidetosee&quot;&gt;HideToSee&lt;/h2&gt;
+&lt;h3 id=&quot;hidetosee&quot;&gt;HideToSee&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -187,7 +466,7 @@ I had to decode with &lt;code class=&quot;language-plaintext highlighter-rouge&q
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;readmycert&quot;&gt;ReadMyCert&lt;/h2&gt;
+&lt;h3 id=&quot;readmycert&quot;&gt;ReadMyCert&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -205,7 +484,7 @@ I had to decode with &lt;code class=&quot;language-plaintext highlighter-rouge&q
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;rotation&quot;&gt;Rotation&lt;/h2&gt;
+&lt;h3 id=&quot;rotation&quot;&gt;Rotation&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -228,7 +507,7 @@ I had to decode with &lt;code class=&quot;language-plaintext highlighter-rouge&q
 
 &lt;h2 id=&quot;forensics-&quot;&gt;&lt;a&gt;Forensics :&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h2 id=&quot;hideme&quot;&gt;Hideme&lt;/h2&gt;
+&lt;h3 id=&quot;hideme&quot;&gt;Hideme&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -319,7 +598,7 @@ flag.png
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;pcappoisoning&quot;&gt;PcapPoisoning&lt;/h2&gt;
+&lt;h3 id=&quot;pcappoisoning&quot;&gt;PcapPoisoning&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -351,7 +630,7 @@ picoCTF{P64P_4N4L7S1S_SU55355FUL_31010c46}
 
 &lt;h2 id=&quot;reverse-engineering-&quot;&gt;&lt;a&gt;Reverse Engineering :&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h2 id=&quot;reverse&quot;&gt;Reverse&lt;/h2&gt;
+&lt;h3 id=&quot;reverse&quot;&gt;Reverse&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -390,7 +669,7 @@ CPU Type                        : AMD x86-64
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;safe-opener-2&quot;&gt;Safe Opener 2&lt;/h2&gt;
+&lt;h3 id=&quot;safe-opener-2&quot;&gt;Safe Opener 2&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -429,7 +708,7 @@ MIME Type                       : application/java-byte-code
 
 &lt;h2 id=&quot;binary-exploitation-&quot;&gt;&lt;a&gt;Binary Exploitation :&lt;/a&gt;&lt;/h2&gt;
 
-&lt;h2 id=&quot;two-sum&quot;&gt;Two-Sum&lt;/h2&gt;
+&lt;h3 id=&quot;two-sum&quot;&gt;Two-Sum&lt;/h3&gt;
 
 &lt;p&gt;Here is the given challenge :&lt;/p&gt;
 
@@ -463,7 +742,43 @@ YOUR FLAG IS: picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_fe14e9e9}
    <link href="https://th3m4r10.github.io/2023/04/02/vishwactf"/>
    <updated>2023-04-02T00:00:00+00:00</updated>
    <id>https://th3m4r10.github.io/2023/04/02/VishwaCTF</id>
-   <content type="html">&lt;p&gt;Loading…&lt;/p&gt;
+   <content type="html">&lt;p&gt;Hi, Hello!&lt;/p&gt;
+
+&lt;p&gt;I played &lt;a&gt;VishwaCTF 2023&lt;/a&gt; which was organised by &lt;a href=&quot;https://ctftime.org/team/144677&quot; style=&quot;color:cyan;&quot;&gt;CyberCellVIIT&lt;/a&gt; along with team &lt;a&gt;Invaders0x1&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is one of the challenge I have solved from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#WEB&lt;/code&gt; category&lt;/p&gt;
+
+&lt;h3 id=&quot;payload&quot;&gt;Payload&lt;/h3&gt;
+
+&lt;p&gt;Here is the challenge deployment :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/payload.png&quot; alt=&quot;Payload&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We were given a button on the webserver which when pressed gave me the info about the system details.&lt;/p&gt;
+
+&lt;p&gt;So again dirsearch found robots.txt on the website which when accessed gave me the source code having if else condition mentioning cmd and btn.&lt;/p&gt;
+
+&lt;p&gt;So as we press the system details button we see that in the url /?btn= appears so simply i changed btn to cmd and to check for if the commands work i tried &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?cmd=ls&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/payload1.png&quot; alt=&quot;Payload&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It gave me the files inside the directory index.html, index.php and one more file forgot the name. So i simply used command &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?cmd=cat+index.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;To notice I wasnt getting the flag anywhere instead the site was getting rendered so I decided to use an alt for cat command and I did the changes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;?cmd=tac index.php&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;and there we go, I found the whole source code with the flag.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/payload2.png&quot; alt=&quot;Payload&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the hidden deatails of the deploymemnt which includes &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;flag&lt;/code&gt; !&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;?&amp;gt; } } system(&quot;uname -a&quot;); echo &quot;System Details: &quot;; if(isset($_GET[&apos;btn&apos;])){ else { } system($_GET[&apos;cmd&apos;]); if(isset($_GET[&apos;cmd&apos;])){ putenv(&quot;FLAG=VishwaCTF{y0u_f-o-u-n-d_M3}&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FLAG : VishwaCTF{y0u_f-o-u-n-d_M3}&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 </content>
  </entry>
  
@@ -476,13 +791,11 @@ YOUR FLAG IS: picoCTF{Tw0_Sum_Integer_Bu773R_0v3rfl0w_fe14e9e9}
 
 &lt;p&gt;It’s my first CTF. Feeling excited and a little bit worrying too !&lt;/p&gt;
 
-&lt;p&gt;I played &lt;a href=&quot;https://wolvctf.io/&quot;&gt;WolvCTF&lt;/a&gt; 2023 with &lt;a href=&quot;https://ctftime.org/team/217079&quot; target=&quot;_blank&quot;&gt;Invaders0x1&lt;/a&gt; which is held from 17 March 2023, 20:00 UTC — Sun, 19 March 2023, 20:00&lt;/p&gt;
-
-&lt;h1 id=&quot;-beginner-&quot;&gt;&lt;a&gt; Beginner &lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;I played &lt;a href=&quot;https://wolvctf.io/&quot;&gt;WolvCTF&lt;/a&gt; 2023 which was organized by &lt;a style=&quot;color: cyan;&quot; href=&quot;https://wolvsec.org/&quot;&gt;WolvSec&lt;/a&gt; along with my team &lt;a href=&quot;https://ctftime.org/team/217079&quot; target=&quot;_blank&quot;&gt;Invaders0x1&lt;/a&gt;. And it was held from 17 March 2023, 20:00 UTC — Sun, 19 March 2023, 20:00&lt;/p&gt;
 
 &lt;p&gt;Let me explain the challenges I have solved in WolvCTF 2023.&lt;/p&gt;
 
-&lt;h2 id=&quot;charlottes-web&quot;&gt;Charlotte’s Web&lt;/h2&gt;
+&lt;h3 id=&quot;charlottes-web&quot;&gt;Charlotte’s Web&lt;/h3&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/CTF/WolvCTF]
 └─$ curl https://charlotte-tlejfksioa-ul.a.run.app/                                           
@@ -527,13 +840,15 @@ def flag():
 └─$ curl https://charlotte-tlejfksioa-ul.a.run.app//super-secret-route-nobody-will-guess -X PUT
 wctf{y0u_h4v3_b33n_my_fr13nd___th4t_1n_1t53lf_1s_4_tr3m3nd0u5_th1ng}  
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
 &lt;blockquote&gt;
   &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : wctf{y0u_h4v3_b33n_my_fr13nd___th4t_1n_1t53lf_1s_4_tr3m3nd0u5_th1ng}&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;baby-re&quot;&gt;Baby re&lt;/h2&gt;
+&lt;h3 id=&quot;baby-re&quot;&gt;Baby re&lt;/h3&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;strings baby-re | grep wctf
 wctf{Oh10_Stat3_1s_Smelly!}
@@ -549,7 +864,7 @@ wctf{A_t0tally_fake_flag}
 
 &lt;hr /&gt;
 
-&lt;h2 id=&quot;we-will-rock-you&quot;&gt;We will rock you&lt;/h2&gt;
+&lt;h3 id=&quot;we-will-rock-you&quot;&gt;We will rock you&lt;/h3&gt;
 
 &lt;p&gt;The challenge gave us a protected zip file. Then, we crack it with john and the rockyou wordlist :&lt;/p&gt;
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;┌──[m4r10@parrot]─[/media/sf_CyberSec/CTF/WolvCTF]

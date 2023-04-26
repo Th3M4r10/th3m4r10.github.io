@@ -1,0 +1,38 @@
+I"–<p>Hi, Hello!</p>
+
+<p>I played <a>VishwaCTF 2023</a> which was organised by <a href="https://ctftime.org/team/144677" style="color:cyan;">CyberCellVIIT</a> along with team <a>Invaders0x1</a>.</p>
+
+<p>Here is one of the challenge I have solved from <code class="language-plaintext highlighter-rouge">#WEB</code> category</p>
+
+<h3 id="payload">Payload</h3>
+
+<p>Here is the challenge deployment :</p>
+
+<p><img src="/assets/img/post_img/payload.png" alt="Payload" /></p>
+
+<p>We were given a button on the webserver which when pressed gave me the info about the system details.</p>
+
+<p>So again dirsearch found robots.txt on the website which when accessed gave me the source code having if else condition mentioning cmd and btn.</p>
+
+<p>So as we press the system details button we see that in the url /?btn= appears so simply i changed btn to cmd and to check for if the commands work i tried <code class="language-plaintext highlighter-rouge">?cmd=ls</code></p>
+
+<p><img src="/assets/img/post_img/payload1.png" alt="Payload" /></p>
+
+<p>It gave me the files inside the directory index.html, index.php and one more file forgot the name. So i simply used command <code class="language-plaintext highlighter-rouge">?cmd=cat+index.php</code></p>
+
+<p>To notice I wasnt getting the flag anywhere instead the site was getting rendered so I decided to use an alt for cat command and I did the changes <code class="language-plaintext highlighter-rouge">?cmd=tac index.php</code></p>
+
+<p>and there we go, I found the whole source code with the flag.</p>
+
+<p><img src="/assets/img/post_img/payload2.png" alt="Payload" /></p>
+
+<p>Here is the hidden deatails of the deploymemnt which includes <code class="language-plaintext highlighter-rouge">flag</code> !</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?&gt; } } system("uname -a"); echo "System Details: "; if(isset($_GET['btn'])){ else { } system($_GET['cmd']); if(isset($_GET['cmd'])){ putenv("FLAG=VishwaCTF{y0u_f-o-u-n-d_M3}");
+</code></pre></div></div>
+<p><br /></p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">FLAG : VishwaCTF{y0u_f-o-u-n-d_M3}</code></p>
+</blockquote>
+:ET
