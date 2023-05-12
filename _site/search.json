@@ -1,6 +1,15 @@
 [
   
     {
+      "title"    : "CryptoverseCTF 2023",
+      "description" : "",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/2023/05/08/cvctf",
+      "date"     : "2023-05-08 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "DawgCTF 2023",
       "description" : "",
       "category" : "",
@@ -16,15 +25,6 @@
       "tags"     : "",
       "url"      : "/2023/04/18/jerseyctf",
       "date"     : "2023-04-18 00:00:00 +0000"
-    } ,
-  
-    {
-      "title"    : "CursedCTF 2023",
-      "description" : "",
-      "category" : "",
-      "tags"     : "",
-      "url"      : "/2023/04/11/cursedctf",
-      "date"     : "2023-04-11 00:00:00 +0000"
     } ,
   
     {

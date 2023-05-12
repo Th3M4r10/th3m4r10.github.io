@@ -4,13 +4,130 @@
  <title>M4r10's Blog</title>
  <link href="https://th3m4r10.github.io/atom.xml" rel="self"/>
  <link href="https://th3m4r10.github.io/"/>
- <updated>2023-04-26T19:29:18+00:00</updated>
+ <updated>2023-05-12T15:01:40+00:00</updated>
  <id>https://th3m4r10.github.io</id>
  <author>
    <name>M4r10</name>
    <email>muraligari2365@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>CryptoverseCTF 2023</title>
+   <link href="https://th3m4r10.github.io/2023/05/08/cvctf"/>
+   <updated>2023-05-08T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/05/08/cvCTF</id>
+   <content type="html">&lt;p&gt;Hi Mates!&lt;/p&gt;
+
+&lt;p&gt;I participated in the &lt;a href=&quot;https://cryptoversectf.tk/&quot; target=&quot;_blank&quot;&gt;Cryptoverse CTF 2023&lt;/a&gt;, a 36-hour competition designed for beginner to intermediate players. The event focused on cryptography, reverse engineering, and programming. Our team managed to achieve &lt;a&gt;58th&lt;/a&gt; place in the competition.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/cvctf_profile.png&quot; alt=&quot;Profile&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here are some of the challenges I have solved :&lt;/p&gt;
+
+&lt;h3 id=&quot;cryptowarmup-3&quot;&gt;Crypto/Warmup 3&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/cvctf_crypto_warmup3.png&quot; alt=&quot;warmup3&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;女川弓彳己廾川 马己 马大川 口川彳己广巛 川巛飞马飞己广 己辶 彳巾山彐马己宀川巾口川 彳马辶. 弓艹口马 山川艹巾, 马川艹廾 廾艹彐弓川 屮艹彳己广 辶巾己廾 彳艹广艹巛艹 女己广 马大川 彳己廾彐川马飞马飞己广 屮山 口己弓宀飞广寸 艹弓弓 彳大艹弓弓川广寸川口. 飞辶 山己门 门广巛川巾口马己己巛 马大川 艹屮己宀川 彳大飞广川口川, 大川巾川 飞口 马大川 辶弓艹寸: 彳宀彳马辶{飞广口川彳门巾川彳大广彳飞彐大川巾}. 口门屮廾飞马 马大川 辶弓艹寸 飞广 弓己女川巾 彳艹口川.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Based on the challenge description, it is clear that a new substitution cipher has been designed, and the text is written in Chinese. The challenge also mentions that &lt;em&gt;“online tools won’t work”&lt;/em&gt; in solving the cipher.&lt;/p&gt;
+
+&lt;p&gt;Initially, the approach of translating the Chinese text to English and then using a substitution cipher decoder may seem like a viable solution. However, it turns out that my assumption was wrong🥲.&lt;/p&gt;
+
+&lt;p&gt;Although translating the text did not confirm my assumption, I am confident that I can randomly assign English alphabets to the Chinese characters based on their respective patterns. Initially, I tried to solve it manually with pen &amp;amp; paper for each character, but it was more time-consuming than I anticipated.&lt;/p&gt;
+
+&lt;p&gt;Therefore, I wrote a small Python script to automate the process🪄.&lt;/p&gt;
+
+&lt;p&gt;CODE :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import re
+
+def replace_chars(s):
+    char_map = {
+        &quot;女&quot;: &quot;A&quot;,
+        &quot;川&quot;: &quot;B&quot;,
+        &quot;弓&quot;: &quot;C&quot;,
+        &quot;彳&quot;: &quot;D&quot;,
+        &quot;己&quot;: &quot;E&quot;,
+        &quot;廾&quot;: &quot;F&quot;,
+        &quot;马&quot;: &quot;G&quot;,
+        &quot;口&quot;: &quot;H&quot;,
+        &quot;广&quot;: &quot;I&quot;,
+        &quot;巛&quot;: &quot;J&quot;,
+        &quot;巾&quot;: &quot;K&quot;,
+        &quot;山&quot;: &quot;L&quot;,
+        &quot;彐&quot;: &quot;M&quot;,
+        &quot;宀&quot;: &quot;N&quot;,
+        &quot;艹&quot;: &quot;O&quot;,
+        &quot;屮&quot;: &quot;P&quot;,
+        &quot;寸&quot;: &quot;Q&quot;,
+        &quot;门&quot;: &quot;R&quot;,
+        &quot;飞&quot;: &quot;S&quot;,
+        &quot;辶&quot;: &quot;T&quot;,
+        &quot;丷&quot;: &quot;U&quot;,
+        &quot;夕&quot;: &quot;V&quot;,
+        &quot;大&quot;: &quot;W&quot;,
+        &quot;弋&quot;: &quot;X&quot;,
+        &quot;乙&quot;: &quot;Y&quot;,
+        &quot;彡&quot;: &quot;Z&quot;
+    }
+    
+    result = re.sub(&quot;[\u4e00-\u9fff]&quot;, lambda x: char_map[x.group()], s)
+    return result
+
+s = &quot;女川弓彳己廾川 马己 马大川 口川彳己广巛 川巛飞马飞己广 己辶 彳巾山彐马己宀川巾口川 彳马辶. 弓艹口马 山川艹巾, 马川艹廾 廾艹彐弓川 屮艹彳己广 辶巾己廾 彳艹广艹巛艹 女己广 马大川 彳己廾彐川马飞马飞己广 屮山 口己弓宀飞广寸 艹弓弓 彳大艹弓弓川广寸川口. 飞辶 山己门 门广巛川巾口马己己巛 马大川 艹屮己宀川 彳大飞广川口川, 大川巾川 飞口 马大川 辶弓艹寸: 彳宀彳马辶{飞广口川彳门巾川彳大广彳飞彐大川巾}. 口门屮廾飞马 马大川 辶弓艹寸 飞广 弓己女川巾 彳艹口川.&quot;
+
+result = replace_chars(s)
+print(result)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;Here is the actual output:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;m4r10@ARLinux:~/Desktop/CyberSec/CTF/cvCTF/crypto/warmup3$ python3 temp.py
+ABCDEFB GE GWB HBDEIJ BJSGSEI ET DKLMGENBKHB DGT. COHG LBOK, GBOF FOMCB PODEI TKEF DOIOJO AEI GWB DEFMBGSGSEI PL HECNSIQ OCC DWOCCBIQBH. ST LER RIJBKHGEEJ GWB OPENB DWSIBHB, WBKB SH GWB TCOQ: DNDGT{SIHBDRKBDWIDSMWBK}. HRPFSG GWB TCOQ SI CEABK DOHB.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, I tried substitution cipher decoder &lt;a href=&quot;https://quipqiup.com&quot; target=&quot;_blank&quot;&gt;quipqiup&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Output :&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;WELCOME TO THE SECOND EDITION OF CRYPTOVERSE CTF. LAST YEAR, TEAM MAPLE BACON FROM CANADA WON THE COMPETITION BY SOLVING ALL CHALLENGES. IF YOU UNDERSTOOD THE ABOVE CHINESE, HERE IS THE FLAG: CVCTF{INSECURECHNCIPHER}. SUBMIT THE FLAG IN LOWER CASE.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : cvctf{insecurechncipher}&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;miscreset-options&quot;&gt;Misc/Reset Options&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/cvctf_misc_resetoptions.png&quot; alt=&quot;ResetOptions&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Robin found this screenshot taken when he was playing around with his gadgets, but he forgot where this was from. Can you help Robin to find out how he got this screen?
+
+Flag format: cvctf{BRAND_NAME_KEYS_PRESSED_IN_ALPHABETICAL_ORDER}
+
+Example: cvctf{APPLE_COMMAND_OPTION_P_R}
+
+Note: We assume numbers are before letters in alphabetical order. Use full name for the brand. As a sanity check, flag has 4 underscores.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/files/cvCTF/reset.png&quot; download=&quot;&quot;&gt; View Files Here&lt;/a&gt;  👈&lt;/p&gt;
+
+&lt;p&gt;First, I examined the given PNG file, then used Google Lens to search for the brand name, and I found &lt;a href=&quot;https://education.ti.com/html/webhelp/EG_TINspire/EN/content/m_press-to-test/pt_press-to-test_for_ti-84_plus_mode.HTML&quot; target=&quot;_blank_&quot;&gt;TI-84&lt;/a&gt; (Calculator)&lt;br /&gt;that is : &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TEXAS INSTRUMENTS&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After, I got original PNG file with additional information from &lt;a href=&quot;http://www.omnimaga.org/general-discussion/mem-clear-for-singapore/&quot; target=&quot;_blank_&quot;&gt;This&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/cvctf_misc_resetoptions0.png&quot; alt=&quot;ResetOptions&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;After observing the above image and reading the challenge &lt;a&gt;note&lt;/a&gt;, I created a flag format&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cvctf{TEXAS_INSTRUMENTS_8_2_ON}&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+ </entry>
  
  <entry>
    <title>DawgCTF 2023</title>
@@ -24,7 +141,7 @@ Proud to share our team ranked &lt;a style=&quot;color: cyan;&quot; href=&quot;h
 We faced tough competition from some of the best teams in the world, but we were determined to succeed.
 Despite the difficulty of the task, our team persevered and came up with a creative solution.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/dawgctf_scoreboard.jpg&quot; alt=&quot;scoreboard&quot; height=&quot;700&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/dawgctf_scoreboard.jpeg&quot; alt=&quot;scoreboard&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Overall, we are grateful for the experience and proud of our achievement. We will continue to work hard and strive for excellence in future competitions.&lt;br /&gt;
 Our team knows that &lt;a&gt;#persistence&lt;/a&gt; is key to success, and we will continue to demonstrate that in everything we do.&lt;/p&gt;
@@ -44,7 +161,7 @@ Our team knows that &lt;a&gt;#persistence&lt;/a&gt; is key to success, and we wi
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;After downloading the &lt;strong&gt;40-second&lt;/strong&gt; audio file, I have been listening to this audio for nearly &lt;strong&gt;1 hour&lt;/strong&gt; in an attempt to understand and identify the number digits in the audio.&lt;br /&gt;
-However, I have not been successful in identifying the exact number digits. As a result, I decided to use online tools like &lt;strong&gt;Flixier&lt;/strong&gt; to generate a transcript (i.e., convert audio to text), but it gave worse results than what I was able to do myself 🥲.●&lt;/p&gt;
+However, I have not been successful in identifying the exact number digits. As a result, I decided to use online tools like &lt;strong&gt;Flixier&lt;/strong&gt; to generate a transcript (i.e., convert audio to text), but it gave worse results than what I was able to do myself 🥲.&lt;/p&gt;
 
 &lt;p&gt;Again I was decided to do myself. And the result is &lt;br /&gt;&lt;/p&gt;
 
@@ -94,8 +211,9 @@ print(ascii_string)
 The flag will be in the format DawgCTF{THEFLAG}, alphabetical only, all capitals for the contents inside DawgCTF{}.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/1e2Sou85uToT-31kg3HWaVV11yVmcVD6N/view&quot; target=&quot;_blank&quot;&gt; View Files Here&lt;/a&gt;  👈
-After extracting the ohdeer.zip file, we obtained 0-24 deer images, with each image containing 2 deers.&lt;br /&gt;
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/1e2Sou85uToT-31kg3HWaVV11yVmcVD6N/view&quot; target=&quot;_blank&quot;&gt; View Files Here&lt;/a&gt;  👈&lt;/p&gt;
+
+&lt;p&gt;After extracting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ohdeer.zip&lt;/code&gt; file, we obtained 0-24 deer images, with each image containing 2 deers.&lt;br /&gt;
 By observing the images, we can differentiate between the sexes of the deer.&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;From left to right:
@@ -163,7 +281,7 @@ Image Size                      : 622x401
 Megapixels                      : 0.249
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Bu using &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stegsolver&lt;/code&gt;&lt;/strong&gt;&lt;br /&gt;
+&lt;p&gt;By using &lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stegsolver&lt;/code&gt;&lt;/strong&gt;&lt;br /&gt;
 We can,&lt;br /&gt;
 Analyze color channels to identify hidden data,&lt;br /&gt;
 Extract and analyzing metadata embedded in the image file,&lt;br /&gt;
@@ -286,16 +404,6 @@ And here is the result with post link,&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : jctf{c0mp3titi0n_spark5_excellency}&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-
-</content>
- </entry>
- 
- <entry>
-   <title>CursedCTF 2023</title>
-   <link href="https://th3m4r10.github.io/2023/04/11/cursedctf"/>
-   <updated>2023-04-11T00:00:00+00:00</updated>
-   <id>https://th3m4r10.github.io/2023/04/11/cursedCTF</id>
-   <content type="html">&lt;p&gt;Hi Mates!&lt;/p&gt;
 
 </content>
  </entry>
