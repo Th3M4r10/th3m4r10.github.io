@@ -4,7 +4,7 @@
  <title>M4r10's Blog</title>
  <link href="https://th3m4r10.github.io/atom.xml" rel="self"/>
  <link href="https://th3m4r10.github.io/"/>
- <updated>2023-05-12T15:01:40+00:00</updated>
+ <updated>2023-06-28T17:05:48+00:00</updated>
  <id>https://th3m4r10.github.io</id>
  <author>
    <name>M4r10</name>
@@ -73,7 +73,7 @@ def replace_chars(s):
         &quot;乙&quot;: &quot;Y&quot;,
         &quot;彡&quot;: &quot;Z&quot;
     }
-    
+
     result = re.sub(&quot;[\u4e00-\u9fff]&quot;, lambda x: char_map[x.group()], s)
     return result
 
@@ -89,7 +89,7 @@ print(result)
 ABCDEFB GE GWB HBDEIJ BJSGSEI ET DKLMGENBKHB DGT. COHG LBOK, GBOF FOMCB PODEI TKEF DOIOJO AEI GWB DEFMBGSGSEI PL HECNSIQ OCC DWOCCBIQBH. ST LER RIJBKHGEEJ GWB OPENB DWSIBHB, WBKB SH GWB TCOQ: DNDGT{SIHBDRKBDWIDSMWBK}. HRPFSG GWB TCOQ SI CEABK DOHB.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Then, I tried substitution cipher decoder &lt;a href=&quot;https://quipqiup.com&quot; target=&quot;_blank&quot;&gt;quipqiup&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Then, I used a substitution cipher decoder called &lt;a href=&quot;https://quipqiup.com&quot; target=&quot;_blank&quot;&gt;quipqiup&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Output :&lt;/p&gt;
 
@@ -124,7 +124,7 @@ Note: We assume numbers are before letters in alphabetical order. Use full name 
 &lt;p&gt;After observing the above image and reading the challenge &lt;a&gt;note&lt;/a&gt;, I created a flag format&lt;/p&gt;
 
 &lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cvctf{TEXAS_INSTRUMENTS_8_2_ON}&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : cvctf{TEXAS_INSTRUMENTS_8_2_ON}&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
  </entry>

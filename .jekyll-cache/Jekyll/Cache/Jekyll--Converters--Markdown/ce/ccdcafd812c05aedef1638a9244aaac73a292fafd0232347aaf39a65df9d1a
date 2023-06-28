@@ -1,4 +1,4 @@
-I"<p>Hi Mates!</p>
+I"�<p>Hi Mates!</p>
 
 <p>I participated in the <a href="https://cryptoversectf.tk/" target="_blank">Cryptoverse CTF 2023</a>, a 36-hour competition designed for beginner to intermediate players. The event focused on cryptography, reverse engineering, and programming. Our team managed to achieve <a>58th</a> place in the competition.</p>
 
@@ -17,7 +17,9 @@
 
 <p>Initially, the approach of translating the Chinese text to English and then using a substitution cipher decoder may seem like a viable solution. However, it turns out that my assumption was wrong🥲.</p>
 
-<p>Although translating the text did not confirm my assumption, I am confident that I can randomly assign English alphabets to the Chinese characters based on their respective patterns. Initially, I tried to solve it manually with pen &amp; paper for each character, but it was more time-consuming than I anticipated. Therefore, I decided to write a Python script to automate the process🪄.</p>
+<p>Although translating the text did not confirm my assumption, I am confident that I can randomly assign English alphabets to the Chinese characters based on their respective patterns. Initially, I tried to solve it manually with pen &amp; paper for each character, but it was more time-consuming than I anticipated.</p>
+
+<p>Therefore, I wrote a small Python script to automate the process🪄.</p>
 
 <p>CODE :</p>
 
@@ -52,6 +54,7 @@ def replace_chars(s):
         "乙": "Y",
         "彡": "Z"
     }
+
     result = re.sub("[\u4e00-\u9fff]", lambda x: char_map[x.group()], s)
     return result
 
@@ -67,7 +70,7 @@ print(result)
 ABCDEFB GE GWB HBDEIJ BJSGSEI ET DKLMGENBKHB DGT. COHG LBOK, GBOF FOMCB PODEI TKEF DOIOJO AEI GWB DEFMBGSGSEI PL HECNSIQ OCC DWOCCBIQBH. ST LER RIJBKHGEEJ GWB OPENB DWSIBHB, WBKB SH GWB TCOQ: DNDGT{SIHBDRKBDWIDSMWBK}. HRPFSG GWB TCOQ SI CEABK DOHB.
 </code></pre></div></div>
 
-<p>Then, I tried substitution cipher decoder <a href="https://quipqiup.com" target="_blank">quipqiup</a>.</p>
+<p>Then, I used a substitution cipher decoder called <a href="https://quipqiup.com" target="_blank">quipqiup</a>.</p>
 
 <p>Output :</p>
 
@@ -80,7 +83,7 @@ ABCDEFB GE GWB HBDEIJ BJSGSEI ET DKLMGENBKHB DGT. COHG LBOK, GBOF FOMCB PODEI TK
 
 <h3 id="miscreset-options">Misc/Reset Options</h3>
 
-<p><img src="/assets/img/post_img/cvctf_misc_resetoptions.png" alt="warmup3" /></p>
+<p><img src="/assets/img/post_img/cvctf_misc_resetoptions.png" alt="ResetOptions" /></p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Robin found this screenshot taken when he was playing around with his gadgets, but he forgot where this was from. Can you help Robin to find out how he got this screen?
 
@@ -91,12 +94,17 @@ Example: cvctf{APPLE_COMMAND_OPTION_P_R}
 Note: We assume numbers are before letters in alphabetical order. Use full name for the brand. As a sanity check, flag has 4 underscores.
 </code></pre></div></div>
 
-<p><a href="https://drive.google.com/file/d/118-1GWC7F0he5EVhF6jnGUmu7CbBaSnD/view" target="_blank"> View Files Here</a>  👈</p>
+<p><a href="/assets/files/cvCTF/reset.png" download=""> View Files Here</a>  👈</p>
 
-<p>First, I observed the given png file and searched with google lens and I got png in</p>
+<p>First, I examined the given PNG file, then used Google Lens to search for the brand name, and I found <a href="https://education.ti.com/html/webhelp/EG_TINspire/EN/content/m_press-to-test/pt_press-to-test_for_ti-84_plus_mode.HTML" target="_blank_">TI-84</a> (Calculator)<br />that is : <code class="language-plaintext highlighter-rouge">TEXAS INSTRUMENTS</code></p>
 
-<p>TI-82
-https://www.omnimaga.org/general-discussion/mem-clear-for-singapore/</p>
+<p>After, I got original PNG file with additional information from <a href="http://www.omnimaga.org/general-discussion/mem-clear-for-singapore/" target="_blank_">This</a></p>
 
-<p>cvctf{TEXAS_INSTRUMENTS_8_2_ON}</p>
+<p><img src="/assets/img/post_img/cvctf_misc_resetoptions0.png" alt="ResetOptions" /></p>
+
+<p>After observing the above image and reading the challenge <a>note</a>, I created a flag format</p>
+
+<blockquote>
+  <p><strong><code class="language-plaintext highlighter-rouge">Flag : cvctf{TEXAS_INSTRUMENTS_8_2_ON}</code></strong></p>
+</blockquote>
 :ET
