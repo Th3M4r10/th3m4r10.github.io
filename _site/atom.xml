@@ -4,13 +4,228 @@
  <title>M4r10's Blog</title>
  <link href="https://th3m4r10.github.io/atom.xml" rel="self"/>
  <link href="https://th3m4r10.github.io/"/>
- <updated>2023-06-28T17:05:48+00:00</updated>
+ <updated>2023-07-22T11:33:54+00:00</updated>
  <id>https://th3m4r10.github.io</id>
  <author>
    <name>M4r10</name>
    <email>muraligari2365@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Novel Cryptography Project</title>
+   <link href="https://th3m4r10.github.io/2023/07/15/novel-cryptography-project-md"/>
+   <updated>2023-07-15T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/07/15/novel-cryptography-project.md</id>
+   <content type="html">&lt;p&gt;Hello, everyone!&lt;/p&gt;
+
+&lt;p&gt;It has been a long time, but I am back again with an exciting cryptography-based project!&lt;/p&gt;
+
+&lt;p&gt;This project combines multiple trending technologies, including Hybrid Cryptography, Multikey Cryptography, Video Communication, Real-time Streaming, Elliptic Curve Cryptography (ECC), AES Encryption, Client-Server Model, Socket Programming, Flask, SQLAlchemy, RSA, and Key Generation.&lt;/p&gt;
+
+&lt;p&gt;Sounds interesting, right? Allow me to provide a brief introduction to this project.&lt;/p&gt;
+
+&lt;h1 id=&quot;a-novel-hybrid-multikey-cryptography-technique-for-video-communication-with-client-server-model&quot;&gt;A Novel Hybrid Multikey Cryptography Technique for Video Communication with Client-Server Model&lt;/h1&gt;
+
+&lt;p&gt;Protecting copyright and preventing piracy has become a crucial concern in real-time video streaming systems. This research project presents a revolutionary multi-key and hybrid cryptography approach to provide enhanced security for video communication.&lt;/p&gt;
+
+&lt;p&gt;The project implements a software solution for video encryption and decryption using a continuous system based on the Elliptic Curve Cryptography (ECC) approach as pseudorandom encryption key generators. This approach generates multiple keys to encrypt and decrypt small chunks of video files dynamically, based on the video data. The implementation follows a client-server model utilizing socket programming.&lt;/p&gt;
+
+&lt;h3 id=&quot;video-walkthrough&quot;&gt;Video Walkthrough&lt;/h3&gt;
+&lt;video width=&quot;100%&quot; height=&quot;100%&quot; controls=&quot;&quot;&gt;
+  &lt;source src=&quot;/assets/vid/demo.webm&quot; type=&quot;video/mp4&quot; /&gt;
+  Your browser does not support the video tag
+&lt;/video&gt;
+
+&lt;h2 id=&quot;project-flow&quot;&gt;Project Flow&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;User Registeration&lt;/p&gt;
+
+    &lt;p&gt;Here users input their email, password, MAC address, and import their public key on a Flask-developed web page. User data, including the public key, is securely stored in a SQLAlchemy database for future authentication and authorization.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;User Login and Dashboard&lt;/p&gt;
+
+    &lt;p&gt;Here Users login using their credentials, upon successful login, the dashboard displays video thumbnails, and provides a download button to obtain the client software for connecting to the streaming server.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Server Side Key Generation&lt;/p&gt;
+
+    &lt;p&gt;The keys which are used to encrypt the video chunks are generated from the ECC equation.  First AES key is generated from the ECC equation which involves Video ID, remaining keys will be generated from the ECC equation which includes the previous key.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Video Encryption at Server Side&lt;/p&gt;
+
+    &lt;p&gt;The encryption is done for the each video chunk individually. The 0th indexed chunk will be encrypted using the RSA with the receivers public key. The 1st indexed video chunk will be encrypted with the AES using the key generated from the ECC equation which involves VID, remaining chunks will be encrypted with AES and the keys generated from ECC equation which includes previously generated ECC key.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Sending Encrypted Video through Sockets&lt;/p&gt;
+
+    &lt;p&gt;Encrypted video is transmitted over sockets using the client-server model. The video data is encrypted on the server side using a hybrid multikey cryptography technique and sent securely to the client for decryption, ensuring confidentiality during transmission.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Receiving Encrypted Video through Sockets&lt;/p&gt;
+
+    &lt;p&gt;Encrypted video is received through sockets in the hybrid multikey cryptography technique. The server receives the encrypted video data, which is then decrypted using the shared session key, ensuring confidentiality and enabling playback or further processing of the video content.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Client Execution&lt;/p&gt;
+
+    &lt;p&gt;During Client Execution, users run the client.py script on their local machine. The server requests the user to provide their email and password for verification. If the credentials entered match the ones used during registration, the server grants access and presents the user with a list of available videos.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Additional Authentication&lt;/p&gt;
+
+    &lt;p&gt;In addition to the login credentials, users are prompted to enter their MAC address during authentication. This additional step helps to enhance security by verifying the user’s identity and ensuring that the device they are using is authorized for access.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Private Key Import&lt;/p&gt;
+
+    &lt;p&gt;In order to decrypt a received video from the server, the user is prompted to provide the path to their private key. This private key is necessary to unlock the encryption applied to the video. By importing the private key, the user can authenticate themselves and gain access to the encrypted content, enabling them to view the video in its original form.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Key Generation at client&lt;/p&gt;
+
+    &lt;p&gt;The keys will be generated in the same way they generated at the server side during the encryption.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Video Decryption and Playback:&lt;/p&gt;
+
+    &lt;p&gt;The video will be decrypted if the private key and MAC address of the user is reasonable. Once decrypted, the video is rendered and displayed by a media player, allowing users to watch it without significant delays or interruptions. This encryption and playback process safeguards copyrighted material and maintains content security and integrity..&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;encryption-flow&quot;&gt;Encryption Flow&lt;/h2&gt;
+
+&lt;p&gt;The video file encrypion flow as follows.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1. Input video file Vinput
+2. Generate video chunks Vci from Vinput
+3. Fetch the receiver&apos;s public key of the RPkey
+4. Collect receiver&apos;s MAC address Rmac
+5. Generate VID using Vc0
+6. Store VID in a temporary file
+7. Encrypt Vc0 using RSA
+8. Generate Keya ← x^3 + VID * x + Rmac
+9. Encrypt Vc1 using Keya and AES
+10. for i := 2 to n do
+11.    Generate Keya ← x^3 + Keya * x + Rmac
+12.    Encrypt Vci using Keya and AES
+13. end for
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;internal-processes&quot;&gt;Internal Processes:&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;User Registration:
+    &lt;ul&gt;
+      &lt;li&gt;During registration, users are required to import their public key, along with their email, password, and MAC address.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Encryption&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/encryption.png&quot; alt=&quot;Video Encryption&quot; /&gt;
+   The server-side encryption involves AES encryption of each 1MB chunk of the video file.
+}&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Key generation:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/key-generation.png&quot; alt=&quot;keygeneration&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The encryption key used for AES is generated using a novel key generation technique that combines RSA and ECC.&lt;/li&gt;
+  &lt;li&gt;Decryption
+    &lt;ul&gt;
+      &lt;li&gt;The decryption was done at the client side same key generation was used here.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;analysis-of-results&quot;&gt;Analysis of Results&lt;/h2&gt;
+
+&lt;h3 id=&quot;time-to-generate-keys&quot;&gt;Time to generate keys&lt;/h3&gt;
+
+&lt;p&gt;To determine the impact of the multi-key in the encryption and decryption process, the time required to generate the key was calculated in this experiment. The method and equation used to derive the keys are the same for both encryption and
+decryption. So, for the sake of analysis, the delay calculated for encryption has been employed in this part. The receiver’s public key and partial video data serve as the basis for the key used to encrypt the first video chunk. The remaining keys are obtained using the receiver’s MAC address, public key, and previously computed key. Since the length of the parameters is consistent during this procedure, the time between each key does not vary much.&lt;/p&gt;
+
+&lt;h3 id=&quot;time-to-encrypt-video-chunks&quot;&gt;Time to encrypt video chunks&lt;/h3&gt;
+
+&lt;p&gt;This section has talked about how long it takes to encrypt each chunk. Although the video processing modules split the video file into chunks for each full frame, the implementation assumes the chunk size to be 1 MB. The video chunks are fed into the AES module before being transmitted. The chunks are mostly the same in that it varies between 1MB and 1.2MB, and the time taken to encrypt each also varies between 0.9 sec to 1.2 sec.&lt;/p&gt;
+
+&lt;h3 id=&quot;number-of-keys-generated&quot;&gt;Number of keys generated&lt;/h3&gt;
+
+&lt;p&gt;The number of keys generated depends on the quantity of generated video chunks. This statistic has been considered for the study because the suggested solution uses multiple key technologies to provide improved security. Multiple keys have no impact on memory use because the keys are only momentarily saved at the transmitter and receiver sides. Furthermore, because each key is only utilized once, an increase in the number of keys has no impact on the fetching delay.&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-entire-project&quot;&gt;Installing Entire Project&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git clone https://github.com/th3m4r10/novel-cryptography-project.git&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cd novel-cryptography-project&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;python3 -m venv env&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;source env/bin/activate&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;pip3 install -r requirements.txt&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now you are set to run this project&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Move to Flask_App directory run the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;app.py&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Visit your localhost to view the webpage on action&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Register an account on the webpage&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Start the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;server.py&lt;/code&gt; and run the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;client.py&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Input the required data in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;client.py&lt;/code&gt; console&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Import your private to play the video&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Keywords&lt;/strong&gt;: Hybrid Cryptography, Multikey Cryptography, Video Communication, Real-time Streaming, Elliptic Curve Cryptography (ECC), AES Encryption, Client-Server Model, Socket Programming, Flask, SQLAlchemy, RSA, Key Generation&lt;/p&gt;
+
+&lt;h3 id=&quot;references&quot;&gt;References&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Project Guided By &lt;a href=&quot;https://www.linkedin.com/in/kumar-anurupam-a3464037/&quot;&gt;Sir, Kumar Anurupam&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Research paper published by &lt;a href=&quot;https://www.linkedin.com/in/rkmundugar/&quot;&gt;Sir. M. Ramakrishna&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Cryptography knowledge by &lt;a href=&quot;https://www.crypto-textbook.com/&quot;&gt;Prof.Christof paar&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Socket Programming tutorial by &lt;a href=&quot;https://realpython.com/python-sockets/&quot;&gt;Real Python&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Flask tutorial by &lt;a href=&quot;https://www.youtube.com/watch?v=Z1RJmh_OqeA&quot;&gt;freecodecamp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;additional-links&quot;&gt;Additional Links&lt;/h3&gt;
+
+&lt;p&gt;Source code : &lt;a href=&quot;https://github.com/th3m4r10/novel-cryptography-project&quot;&gt;Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Please let me know there was any bug/flaw in the implementation..&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>CryptoverseCTF 2023</title>

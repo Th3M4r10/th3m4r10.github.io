@@ -1,6 +1,15 @@
 [
   
     {
+      "title"    : "Novel Cryptography Project",
+      "description" : "",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/2023/07/15/novel-cryptography-project-md",
+      "date"     : "2023-07-15 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "CryptoverseCTF 2023",
       "description" : "",
       "category" : "",
