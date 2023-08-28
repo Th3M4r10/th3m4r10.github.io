@@ -4,13 +4,122 @@
  <title>M4r10's Blog</title>
  <link href="https://th3m4r10.github.io/atom.xml" rel="self"/>
  <link href="https://th3m4r10.github.io/"/>
- <updated>2023-07-22T11:33:54+00:00</updated>
+ <updated>2023-08-28T12:29:34+00:00</updated>
  <id>https://th3m4r10.github.io</id>
  <author>
    <name>M4r10</name>
    <email>muraligari2365@gmail.com</email>
  </author>
 
+ 
+ <entry>
+   <title>SekaiCTF 2023</title>
+   <link href="https://th3m4r10.github.io/2023/08/28/sekaictf"/>
+   <updated>2023-08-28T00:00:00+00:00</updated>
+   <id>https://th3m4r10.github.io/2023/08/28/SekaiCTF</id>
+   <content type="html">&lt;p&gt;Hello all!&lt;br /&gt;
+I have recently played &lt;a href=&quot;https://ctftime.org/event/1923&quot;&gt; SekaiCTF &lt;/a&gt;. &lt;br /&gt;
+Which was happened from Fri, 25 Aug. 2023, 21:30 IST to Sun, 27 Aug. 2023, 21:30 IST.&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the challenge from the category of &lt;a style=&quot;color:cyan&quot;&gt;Professional Programming &amp;amp; Coding (PPC)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;wiki-game&quot;&gt;Wiki Game&lt;/h3&gt;
+
+&lt;pre&gt;
+Welcome to Project SEKAI Online Judge!
+
+Author: sahuang
+&lt;/pre&gt;
+&lt;p&gt;&lt;a style=&quot;color:#FF7779&quot;&gt;❖ Note :&lt;/a&gt;
+Time limit is 5 seconds. There is rate limiting and you can only submit once every 30 seconds. For simplicity, sample input &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1.in&lt;/code&gt; is given in this challenge.&lt;/p&gt;
+
+&lt;p&gt;&lt;a style=&quot;color:pink&quot;&gt;Server:&lt;/a&gt;  
+&lt;a href=&quot;http://algo-server.chals.sekai.team&quot; target=&quot;_blank&quot;&gt;http://algo-server.chals.sekai.team&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a style=&quot;color:pink&quot;&gt;Files:&lt;/a&gt; &lt;br /&gt;
+&lt;a href=&quot;/assets/files/sekaiCTF/Wiki_Game.pdf&quot; download=&quot;&quot;&gt; Wiki_Game.pdf&lt;/a&gt; &lt;br /&gt; &lt;a href=&quot;/assets/files/sekaiCTF/1.in&quot; download=&quot;&quot;&gt; 1.in&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;problem-statement&quot;&gt;Problem Statement&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sekai_wiki_game.png&quot; alt=&quot;six degrees of wikipedia &quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Wiki Game&lt;/code&gt; is a hypertextual game designed to work speciﬁcally with Wikipedia. Player starts on some randomly selected article, and must navigate to another pre-selected target article solely by clicking links within each article. The goal is to arriveat the target article in the fewest clicks. According to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Six degrees of Wikipedia&lt;/code&gt;, you can almost always complete the game in 6 clicks.&lt;/p&gt;
+
+&lt;p&gt;The Wikipedia database can be modelled as an unweighted, directed graph where each article corresponds to a vertex. It is important to note that the graph can contain cycles. Your goal is to efﬁciently determine whether it is possible to navigate from the source article to the target article within a maximum path length of 6.&lt;/p&gt;
+
+&lt;h4 id=&quot;input&quot;&gt;Input&lt;/h4&gt;
+
+&lt;p&gt;The ﬁrst line of input contains an integer &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;T (1 ≤ T ≤ 20)&lt;/code&gt;, the number of test cases. In each test case, the ﬁrst line contains two space-separated integers &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;n (2 ≤ n ≤ 1,000)&lt;/code&gt; and &lt;br /&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m (1 ≤ m ≤ 4,000)&lt;/code&gt;,the number of vertices and edges respectively. The next m lines describe the graph. The ith line contains two space-separated integers &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ui, vi (0 ≤ ui ≠ vi&amp;lt; n)&lt;/code&gt;, meaning there exists a path from &lt;strong&gt;&lt;em&gt;ui&lt;/em&gt;&lt;/strong&gt; to &lt;strong&gt;&lt;em&gt;vi&lt;/em&gt;&lt;/strong&gt; . The last line contains two space-separated integers &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src, dst (0 ≤ src ≠ dst &amp;lt; n)&lt;/code&gt;, the source and target vertices.&lt;/p&gt;
+
+&lt;h3 id=&quot;output&quot;&gt;Output&lt;/h3&gt;
+&lt;p&gt;Output should have T lines. Each line prints YES if there exists a path from &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;src&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; to &lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dst&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt; within a path length of 6, or NO otherwise. Remember to print them in upper-case.&lt;/p&gt;
+
+&lt;h3 id=&quot;explanation&quot;&gt;Explanation&lt;/h3&gt;
+&lt;p&gt;In the ﬁrst test case, there exists a path &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0 → 1 → 2 → 3 → 4 → 5 → 6&lt;/code&gt; of length 6, so the answer is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YES&lt;/code&gt;.
+In the second test case, there is no path from 0 to 9 so the answer is NO. There is a path of length 3 from 9 to 0, but the graph is directed so it does not count.&lt;/p&gt;
+
+&lt;p&gt;To meet the time limit of 5 seconds and optimize the solution further, I used a breadth-first search (BFS) approach to find a path within a maximum of 6 steps. I thought BFS is a better choice for this scenario as it explores the graph level by level, ensuring that we can find the shortest path first. &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here’s the Python code using BFS:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CODE:&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env python3
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;is_possible_to_reach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;depth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pop&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;node&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;depth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;neighbor&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;not&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;visited&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;neighbor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;queue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;neighbor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;depth&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;v&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+        &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dst&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;split&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;is_possible_to_reach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graph&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dst&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;YES&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;NO&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;__main__&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;This code should provide a faster solution using BFS, which is well-suited for finding paths in graphs. It will also handle the given time limit and rate limiting constraints more effectively.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally I got the flag,&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/post_img/sekai_wiki_flag.png&quot; alt=&quot;flag_submission &quot; /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;&lt;em&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Flag : SEKAI{hyp3rL1nk_cha115_4r3_EZ}&lt;/code&gt;&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Novel Cryptography Project</title>
@@ -257,45 +366,45 @@ decryption. So, for the sake of analysis, the delay calculated for encryption ha
 
 &lt;p&gt;CODE :&lt;/p&gt;
 
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import re
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
 
-def replace_chars(s):
-    char_map = {
-        &quot;女&quot;: &quot;A&quot;,
-        &quot;川&quot;: &quot;B&quot;,
-        &quot;弓&quot;: &quot;C&quot;,
-        &quot;彳&quot;: &quot;D&quot;,
-        &quot;己&quot;: &quot;E&quot;,
-        &quot;廾&quot;: &quot;F&quot;,
-        &quot;马&quot;: &quot;G&quot;,
-        &quot;口&quot;: &quot;H&quot;,
-        &quot;广&quot;: &quot;I&quot;,
-        &quot;巛&quot;: &quot;J&quot;,
-        &quot;巾&quot;: &quot;K&quot;,
-        &quot;山&quot;: &quot;L&quot;,
-        &quot;彐&quot;: &quot;M&quot;,
-        &quot;宀&quot;: &quot;N&quot;,
-        &quot;艹&quot;: &quot;O&quot;,
-        &quot;屮&quot;: &quot;P&quot;,
-        &quot;寸&quot;: &quot;Q&quot;,
-        &quot;门&quot;: &quot;R&quot;,
-        &quot;飞&quot;: &quot;S&quot;,
-        &quot;辶&quot;: &quot;T&quot;,
-        &quot;丷&quot;: &quot;U&quot;,
-        &quot;夕&quot;: &quot;V&quot;,
-        &quot;大&quot;: &quot;W&quot;,
-        &quot;弋&quot;: &quot;X&quot;,
-        &quot;乙&quot;: &quot;Y&quot;,
-        &quot;彡&quot;: &quot;Z&quot;
-    }
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;replace_chars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;char_map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;女&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;A&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;川&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;B&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;弓&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;彳&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;D&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;己&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;E&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;廾&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;F&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;马&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;G&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;口&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;H&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;广&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;I&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;巛&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;J&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;巾&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;K&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;山&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;L&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;彐&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;M&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;宀&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;N&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;艹&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;O&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;屮&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;P&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;寸&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Q&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;门&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;R&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;飞&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;S&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;辶&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;T&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;丷&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;U&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;夕&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;V&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;大&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;W&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;弋&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;X&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;乙&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Y&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s&quot;&gt;&quot;彡&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Z&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-    result = re.sub(&quot;[\u4e00-\u9fff]&quot;, lambda x: char_map[x.group()], s)
-    return result
+    &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;re&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;[&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u4e00&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u9fff&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;]&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;char_map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()],&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;
 
-s = &quot;女川弓彳己廾川 马己 马大川 口川彳己广巛 川巛飞马飞己广 己辶 彳巾山彐马己宀川巾口川 彳马辶. 弓艹口马 山川艹巾, 马川艹廾 廾艹彐弓川 屮艹彳己广 辶巾己廾 彳艹广艹巛艹 女己广 马大川 彳己廾彐川马飞马飞己广 屮山 口己弓宀飞广寸 艹弓弓 彳大艹弓弓川广寸川口. 飞辶 山己门 门广巛川巾口马己己巛 马大川 艹屮己宀川 彳大飞广川口川, 大川巾川 飞口 马大川 辶弓艹寸: 彳宀彳马辶{飞广口川彳门巾川彳大广彳飞彐大川巾}. 口门屮廾飞马 马大川 辶弓艹寸 飞广 弓己女川巾 彳艹口川.&quot;
+&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;女川弓彳己廾川 马己 马大川 口川彳己广巛 川巛飞马飞己广 己辶 彳巾山彐马己宀川巾口川 彳马辶. 弓艹口马 山川艹巾, 马川艹廾 廾艹彐弓川 屮艹彳己广 辶巾己廾 彳艹广艹巛艹 女己广 马大川 彳己廾彐川马飞马飞己广 屮山 口己弓宀飞广寸 艹弓弓 彳大艹弓弓川广寸川口. 飞辶 山己门 门广巛川巾口马己己巛 马大川 艹屮己宀川 彳大飞广川口川, 大川巾川 飞口 马大川 辶弓艹寸: 彳宀彳马辶{飞广口川彳门巾川彳大广彳飞彐大川巾}. 口门屮廾飞马 马大川 辶弓艹寸 飞广 弓己女川巾 彳艹口川.&quot;&lt;/span&gt;
 
-result = replace_chars(s)
-print(result)
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;replace_chars&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;Here is the actual output:&lt;/p&gt;

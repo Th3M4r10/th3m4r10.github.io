@@ -1,0 +1,118 @@
+I"b<p>Hello all!</p>
+
+<p>I have recently played <a href="https://ctftime.org/event/1923"> SekaiCTF </a>. Which was happened from Fri, 25 Aug. 2023, 21:30 IST to Sun, 27 Aug. 2023, 21:30 IST.<br /></p>
+
+<p>Here is the challenge from the category of <a style="color:cyan">Professional Programming &amp; Coding (PPC)</a></p>
+
+<h3 id="wiki-game">Wiki Game</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Welcome to Project SEKAI Online Judge!
+
+Author: sahuang
+</code></pre></div></div>
+
+<p><a style="color:pink">❖ Note :</a>
+Time limit is 5 seconds. There is rate limiting and you can only submit once every 30 seconds. For simplicity, sample input <code class="language-plaintext highlighter-rouge">1.in</code> is given in this challenge.</p>
+
+<p><a href="http://algo-server.chals.sekai.team" target="_blank">http://algo-server.chals.sekai.team</a> 📋</p>
+
+<p><code class="language-plaintext highlighter-rouge">Files:</code></p>
+
+<p><a href="/assets/files/sekaiCTF/Wiki_Game.pdf" download=""> Wiki_Game.pdf</a> <br /></p>
+
+<p><a href="/assets/files/sekaiCTF/1.in" download=""> 1.in</a></p>
+
+<h4 id="problem-statement">Problem Statement</h4>
+
+<p><img src="/assets/img/post_img/sekai_wiki_game.png" alt="six degrees of wikipedia " /></p>
+
+<p>The <code class="language-plaintext highlighter-rouge">Wiki Game</code> is a hypertextual game designed to work speciﬁcally with Wikipedia. Player starts on some randomly selected article, and must navigate to another pre-selected target article solely by clicking links within each article. The goal is to arriveat the target article in the fewest clicks. According to <code class="language-plaintext highlighter-rouge">Six degrees of Wikipedia</code>, you can almost always complete the game in 6 clicks.</p>
+
+<p>The Wikipedia database can be modelled as an unweighted, directed graph where each article corresponds to a vertex. It is important to note that the graph can contain cycles. Your goal is to efﬁciently determine whether it is possible to navigate from the source article to the target article within a maximum path length of 6.</p>
+
+<h4 id="input">Input</h4>
+
+<p>The ﬁrst line of input contains an integer <strong><code class="language-plaintext highlighter-rouge">T (1 ≤ T ≤ 20)</code></strong>, the number of test cases. In each test case, the ﬁrst line contains two space-separated integers <strong><code class="language-plaintext highlighter-rouge">n (2 ≤ n ≤ 1,000)</code></strong> and <br /> <strong><code class="language-plaintext highlighter-rouge">m (1 ≤ m ≤ 4,000)</code></strong> ,the number of vertices and edges respectively. The next m lines describe the graph. The ith line contains two space-separated integers <strong><code class="language-plaintext highlighter-rouge">ui, vi (0 ≤ ui ≠ vi&lt; n)</code></strong>, meaning there exists a path from <strong><em>ui</em></strong> to <strong><em>vi</em></strong> . The last line contains two space-separated integers <strong><code class="language-plaintext highlighter-rouge">src, dst (0 ≤ src ≠ dst &lt; n)</code></strong>, the source and target vertices.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>From left to right:
+(F)  (M)
+(M)  (F)
+(M)  (M)
+(F)  (F)
+</code></pre></div></div>
+
+<p>We have obtained the final sequence form all images :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FM MF MF MM MF MF FF MF FM FF FM FF FF MM FM FF FM MF FM FF FF MF FM FF FM
+</code></pre></div></div>
+
+<p>This is the <strong><code class="language-plaintext highlighter-rouge">Baconian Cipher</code></strong>,</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FMMFM FMMMF MFFFM FFMFF FMFFF FMMFM FFFMM FFMFF FFMFF MFFFM
+</code></pre></div></div>
+
+<p>Using <a href="https://www.dcode.fr/bacon-cipher">dCode</a> we can decrypt <strong>Cipher text</strong> and obtain <strong>Plain text</strong></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N O R E I N D E E R
+</code></pre></div></div>
+
+<p>And here is the flag,</p>
+
+<blockquote>
+  <p><strong><code class="language-plaintext highlighter-rouge">Flag : DawgCTF{NOREINDEER}</code></strong></p>
+</blockquote>
+
+<hr />
+
+<h3 id="yo-dawg">Yo Dawg</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Yo Dawg, we heard you like flags, so we put a flag in your memes.
+</code></pre></div></div>
+
+<p><a href="https://drive.google.com/file/d/1PlajwJ5IzRsFhk9BV0EaMRrT6yAwA-FG/view" target="_blank">View Files Here</a></p>
+
+<p>Using command : <code class="language-plaintext highlighter-rouge">exiftool yo_dawg.jpg</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>m4r10@ARLinux:~/Desktop/CyberSec/CTF/DawgCTF/forensic$ exiftool yo_dawg.jpg 
+ExifTool Version Number         : 12.40
+File Name                       : yo_dawg.jpg
+Directory                       : .
+File Size                       : 41 KiB
+File Modification Date/Time     : 2023:04:22 10:49:38+05:30
+File Access Date/Time           : 2023:04:22 10:52:46+05:30
+File Inode Change Date/Time     : 2023:04:22 10:50:01+05:30
+File Permissions                : -rw-rw-r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : None
+X Resolution                    : 72
+Y Resolution                    : 72
+Image Width                     : 622
+Image Height                    : 401
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 622x401
+Megapixels                      : 0.249
+</code></pre></div></div>
+
+<p>By using <strong><code class="language-plaintext highlighter-rouge">stegsolver</code></strong><br />
+We can,<br />
+Analyze color channels to identify hidden data,<br />
+Extract and analyzing metadata embedded in the image file,<br />
+Apply various filters to the image to highlight hidden information,<br />
+Check for unusual patterns or anomalies in the image.</p>
+
+<p>Finally, After changing the <strong>Frame</strong> obtained the flag.</p>
+
+<p><img src="/assets/img/post_img/yo_dawg.png" alt="yo_dawg" /></p>
+
+<p>And the flag is,</p>
+
+<blockquote>
+  <p><strong><code class="language-plaintext highlighter-rouge">Flag : DawgCTF{h342d_y0u_11k3_f1495_d4w9}</code></strong></p>
+</blockquote>
+:ET
