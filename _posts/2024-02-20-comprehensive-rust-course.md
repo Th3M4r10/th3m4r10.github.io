@@ -116,6 +116,7 @@ fn main() {
 }
 ```
 
+
 ### Type Inference
 
 Type inference in Rust allows the compiler to deduce the type of an expression without explicit type annotations.
@@ -1452,3 +1453,10 @@ fn main() {
 }
 ```
 
+
+### Additional Resources
+- [Google Comprehensive Rust Course](https://google.github.io/comprehensive-rust/)
+- [Comprehensive Rust](https://github.com/google/comprehensive-rust)
+- [Rust Documentation](https://doc.rust-lang.org/)
+- [Cargo Guide](https://doc.rust-lang.org/cargo/)
+- [Rust Testing](https://doc.rust-lang.org/book/ch11-00-testing.html)
