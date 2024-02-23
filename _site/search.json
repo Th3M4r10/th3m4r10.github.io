@@ -1,6 +1,15 @@
 [
   
     {
+      "title"    : "Google Comprehensive Rust Course",
+      "description" : "",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/2024/02/20/comprehensive-rust-course",
+      "date"     : "2024-02-20 00:00:00 +0000"
+    } ,
+  
+    {
       "title"    : "SekaiCTF 2023",
       "description" : "",
       "category" : "",
@@ -14,7 +23,7 @@
       "description" : "",
       "category" : "",
       "tags"     : "",
-      "url"      : "/2023/07/15/novel-cryptography-project-md",
+      "url"      : "/2023/07/15/novel-cryptography-project",
       "date"     : "2023-07-15 00:00:00 +0000"
     } ,
   

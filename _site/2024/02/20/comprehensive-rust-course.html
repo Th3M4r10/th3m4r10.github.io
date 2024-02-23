@@ -1,0 +1,968 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/assets/css/syntax.css"><link rel="preconnect" href="https://cdnjs.cloudflare.com"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="icon" type="image/x-icon" href="favicon.png"><title> Google Comprehensive Rust Course - M4r10&#39;s Blog</title><link rel="shortcut icon" href="https://th3m4r10.github.io/favicon.png"><link rel="alternate" type="application/atom+xml" title="M4r10's Blog" href="/atom.xml"><link rel="alternate" type="application/json" title="M4r10's Blog" href="/feed.json" /><link rel="sitemap" type="application/xml" title="sitemap" href="https://th3m4r10.github.io/sitemap.xml" /><link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700;1,900&display=swap" rel="stylesheet"><style> *,:after,:before{box-sizing:border-box;background-color:inherit;color:inherit;margin:0;padding:0}html{font-size:15px}#theme-toggle{opacity:0.65;position:relative;border-radius:5px;height:25px;display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;transition:opacity 0.3s ease 0s;border:none;outline:none;background:none;cursor:pointer;padding:0px;appearance:none;transform:scale(0.8)}html,html[data-theme="light"]{--text-font: Play;--source-code-font: Source Code Pro;--very-light-text-color: rgb(222, 222, 222);--light-text-color: rgb(89, 183, 255);--medium-text-color: #555;--main-text-color: #333;--highlight-text-color: #ff0000;--dark-text-color: #393e46;--link-color: rgb(50, 87, 209);--code-bg-color: rgb(245, 245, 245);background-color:#fff}html #theme-toggle div,html[data-theme="light"] #theme-toggle div{position:relative;width:24px;height:24px;border-radius:50%;border:none;background-color:var(--theme-ui-colors-transparent, transparent);transform:scale(1);transition:all 0.45s ease 0s;overflow:hidden;box-shadow:inset 8px -8px 0px 0px var(--theme-ui-colors-toggleIcon, #2d3748)}html #theme-toggle div::before,html[data-theme="light"] #theme-toggle div::before{content:"";position:absolute;right:-9px;top:-9px;height:24px;width:24px;border:none;border-radius:50%;transform:translate(0px, 0px);opacity:1;transition:transform 0.45s ease 0s}html #theme-toggle div::after,html[data-theme="light"] #theme-toggle div::after{content:"";width:8px;height:8px;border-radius:50%;margin:-4px 0px 0px -4px;position:absolute;top:50%;left:50%;box-shadow:0 -23px 0 var(--theme-ui-colors-toggleIcon, #2d3748),0 23px 0 var(--theme-ui-colors-toggleIcon, #2d3748),23px 0 0 var(--theme-ui-colors-toggleIcon, #2d3748),-23px 0 0 var(--theme-ui-colors-toggleIcon, #2d3748),15px 15px 0 var(--theme-ui-colors-toggleIcon, #2d3748),-15px 15px 0 var(--theme-ui-colors-toggleIcon, #2d3748),15px -15px 0 var(--theme-ui-colors-toggleIcon, #2d3748),-15px -15px 0 var(--theme-ui-colors-toggleIcon, #2d3748);transform:scale(0);transition:all 0.35s ease 0s}html[data-theme="dark"]{--text-font: Play;--source-code-font: Source Code Pro;--very-light-text-color: #EEE;--light-text-color: #c4bbf0;--medium-text-color: #52057b;--main-text-color: #EAEAEA;--highlight-text-color: #00ffb8;--dark-text-color: rgb(36, 38, 42);--link-color: rgb(255, 89, 125);--code-bg-color: rgb(36, 38, 42);background-color:#131418}html[data-theme="dark"] #theme-toggle div{position:relative;width:24px;height:24px;border-radius:50%;border:4px solid var(--theme-ui-colors-toggleIcon, #cbd5e0);background-color:var(--theme-ui-colors-toggleIcon, #cbd5e0);transform:scale(0.55);transition:all 0.45s ease 0s;overflow:visible;box-shadow:none}html[data-theme="dark"] #theme-toggle div::before{content:"";position:absolute;right:-9px;top:-9px;height:24px;width:24px;border:2px solid var(--theme-ui-colors-toggleIcon, #cbd5e0);border-radius:50%;transform:translate(14px, -14px);opacity:0;transition:transform 0.45s ease 0s}html[data-theme="dark"] #theme-toggle div::after{content:"";width:8px;height:8px;border-radius:50%;margin:-4px 0px 0px -4px;position:absolute;top:50%;left:50%;box-shadow:0 -23px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),0 23px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),23px 0 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),-23px 0 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),15px 15px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),-15px 15px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),15px -15px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0),-15px -15px 0 var(--theme-ui-colors-toggleIcon, #cbd5e0);transform:scale(1);transition:all 0.35s ease 0s}body{font-family:var(--text-font),monospace;text-rendering:optimizeLegibility;line-height:1.75;color:var(--main-text-color)}a{color:var(--link-color);text-decoration:none}.post p{margin:1rem 0}.meta{margin:1.4rem 0}code,pre{background:var(--code-bg-color);margin:0 -27px;border-width:1px}code{font-family:var(--source-code-font),monospace;margin:unset;padding:0.1rem;color:var(--highlight-text-color)}pre code{background-color:unset;color:unset}pre{background-color:black;border-width:3px;padding:0.8rem;border-style:none none none solid;border-color:var(--light-text-color);overflow-y:hidden;overflow:auto}img{max-width:100%}hr{background:var(--light-text-color);height:1px;border:0}header{flex-basis:10rem;flex-grow:1;position:relative}header a{text-decoration:none}header li{margin-bottom:0.2rem;text-align:right;margin-right:2rem}header a.active{font-weight:bold}header,section{padding:1rem 0}section{margin-top:5.5rem}blockquote{font-style:italic;border-left:5px solid var(--dark-text-color);padding-left:1rem;word-break:break-all}h1{color:var(--main-text-color);text-transform:uppercase;font-size:2rem;font-weight:bold;margin-bottom:1.5rem}h2,h3,h4,h5{font-weight:bold;margin-bottom:1.5rem;font-size:2rem}h2{font-size:1.8rem}h3{font-size:1.6rem}h4{font-size:1.4rem}h5{font-size:1.2rem}h6{font-size:1rem}section h1:first-child{margin-top:0}strong,b{font-weight:bold}.photos ul{list-style:none}.photos li{margin-bottom:1.5rem}.photo picture,.project picture{margin-bottom:0.5rem}.posts>h3{font-weight:500}.post ul{margin:0px;margin:0px 0px 10px 10px}.post ol{margin:0px;margin:0px 0px 10px 15px}.posts li{align-items:center;display:flex;justify-content:space-between;margin-bottom:0.5rem}.posts li a,.posts li div,.projects li a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold}.posts li time,.projects li time{padding-left:1rem;white-space:nowrap;font-variant-numeric:tabular-nums}time{color:var(--main-text-color)}.post>h1.title{font-size:x-large;margin-top:0;margin-bottom:0}.post>time{margin-bottom:0;margin-top:3rem}.highlight{margin:0px}main{display:flex;max-width:47rem;margin:-5rem auto 0;padding:2.4rem 2rem;flex-direction:column}.flex-row-between{display:flex;flex-direction:row;justify-content:space-between}.social-footer{padding:1rem;display:flex;justify-content:center;position:initial}.social-footer .social-footer-icons .fa{font-size:1.3rem;color:#a9a9a9}.social-footer .social-footer-icons .fa:hover{color:dimgray;transition:color 0.3s ease-in}@media screen and (max-width: 45rem){header li{display:inline;margin-right:1rem}.logo{padding-bottom:1rem}header ul{border-bottom:1px solid #edf2f7;padding-bottom:2rem}nav ul{border-right:0px}.photos ul{margin-top:0.5rem}main{padding:0 2rem}}section{flex-grow:999;display:flex;flex-direction:column}figcaption{font-size:smaller}.bio{margin-bottom:5rem}::selection{background-color:#fffba0;color:#333}.search-article{position:relative}.search-article label[for="search-input"]{position:relative;top:-10px;left:11px}.search-article input[type="search"]{top:-1rem;left:0;border:0;width:100%;height:30px;outline:none;position:absolute;border-radius:5px;padding:10px 10px 10px 35px;color:var(--main-text-color);-webkit-appearance:none;background-color:rgba(128,128,128,0.1);border:1px solid rgba(128,128,128,0.1)}.search-article input[type="search"]::-webkit-input-placeholder{color:#808080}.search-article input[type="search"]::-webkit-search-decoration,.search-article input[type="search"]::-webkit-search-results-decoration{display:none}#search-results{text-align:center}#search-results li{text-align:center}#search-results li::before{content:"›";display:inline-block;margin-left:-1.3em;width:1.3em;color:var(--main-text-color)}.post-nav{display:flex;position:relative;margin-top:0;border-top:2px solid var(--light-text-color);line-height:1.4}.post-nav .post-nav-item{border-bottom:0;padding-bottom:10px;width:50%;padding-top:10px;text-decoration:none;box-sizing:border-box}.post-nav .post-nav-item .post-title{color:var(--main-text-color)}.post-nav .post-nav-item:hover .post-title,.post-nav .post-nav-item:focus .post-title{color:var(--link-color);opacity:0.9}.post-nav .post-nav-item .nav-arrow{font-size:17px;color:var(--main-text-color);margin-bottom:3px;font-weight:bold}.post-nav .post-nav-item:nth-child(odd){padding-left:0;padding-right:20px}.post-nav .post-nav-item:nth-child(even){text-align:right;padding-right:0;padding-left:20px}.tags ul{list-style:none;display:grid;grid-template-columns:auto auto auto auto auto auto;grid-template-rows:auto auto auto auto}.tags li{white-space:normal;text-overflow:ellipsis}.timeline{position:center;width:650px;margin:-6em auto;padding:1px;list-style-type:none}@media (max-width: 860px){.timeline{width:100%}}.timeline:before{position:absolute;left:50%;top:0;content:' ';display:block;width:6px;height:100%;margin-left:-3px;background:var(--light-text-color);z-index:5}@media (max-width: 375px){.timeline:before{height:150%}}.timeline li{padding:2em 0}@media (max-width: 860px){.timeline li{padding:2em 0}}.timeline li::after{content:"";display:block;height:150%;clear:both;visibility:hidden}.direction-l{position:relative;width:287px;float:left;text-align:right}@media (max-width: 860px){.direction-l{float:none;width:100%;text-align:center}}.direction-l .flag{color:#333;box-shadow:-1px 1px 1px rgba(0,0,0,0.52)}.direction-l .flag:after{content:"";position:absolute;left:100%;top:50%;height:0;width:0;margin-top:-8px;border:solid transparent;border-left-color:#f8f8f8;border-width:8px;pointer-events:none}@media (max-width: 860px){.direction-l .flag:after{content:"";position:absolute;left:50%;top:-8px;height:0;width:0;margin-left:-8px;border:solid transparent;border-bottom-color:#fff;border-width:8px;pointer-events:none}}.direction-l .time-wrapper{float:left}@media (max-width: 860px){.direction-l .time-wrapper{float:none}}.direction-r{position:relative;width:293px;float:right;text-align:left}@media (max-width: 860px){.direction-r{float:none;width:100%;text-align:center}}.direction-r .flag{color:#333;box-shadow:1px 1px 1px rgba(0,0,0,0.52)}.direction-r .flag:after{content:"";position:absolute;right:100%;top:50%;height:0;width:0;margin-top:-8px;border:solid transparent;border-right-color:#f8f8f8;border-width:8px;pointer-events:none}@media (max-width: 860px){.direction-r .flag:after{content:"";position:absolute;left:50%;top:-8px;height:0;width:0;margin-left:-8px;border:solid transparent;border-bottom-color:#fff;border-width:8px;pointer-events:none}}.direction-r .flag:before{left:-40px}.direction-r .time-wrapper{float:right}@media (max-width: 860px){.direction-r .time-wrapper{float:none}}.flag-wrapper{position:relative;display:inline-block;text-align:center}@media (max-width: 860px){.flag-wrapper{text-align:center}}.flag-wrapper .flag{position:relative;display:inline;background:#f8f8f8;padding:6px 10px;border-radius:5px;font-weight:600;text-align:left}@media (max-width: 860px){.flag-wrapper .flag{background:#fff;z-index:15}}.direction-l .flag:before,.direction-r .flag:before{position:absolute;top:60%;right:-40px;content:' ';display:block;width:12px;height:12px;margin-top:-10px;background:#fff;border-radius:10px;border:4px solid var(--link-color);z-index:10}@media (max-width: 860px){.direction-l .flag:before,.direction-r .flag:before{position:absolute;top:-30px;left:53%;content:' ';display:block;margin-left:-10px}}.time-wrapper{display:inline;line-height:1em;font-size:0.66666em;color:var(--link-color);vertical-align:middle}@media (max-width: 860px){.time-wrapper{display:block;position:relative;margin:4px 0 0 0;z-index:14}}.time-wrapper .time{display:inline-block;padding:4px 6px;background:#f8f8f8}.desc{margin:1em 0.2em -3.5em 0;font-size:0.9em;line-height:1.5em}.desc a{color:var(--link-color);text-decoration:none}.desc a:hover{text-decoration:underline}@media (max-width: 860px){.desc{position:relative;margin:1em 1em 0 1em;padding:1em;background:var(--code-bg-color);box-shadow:0 0 1px rgba(0,0,0,0.2);z-index:15}}</style></head><script async src="https://www.googletagmanager.com/gtag/js?id=G-3EP7KLCYVP"></script> <script> window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'G-3EP7KLCYVP'); </script><body><main><section class="post"><div class="flex-row-between"> <a href="/">« back</a> <button title="Change theme" id="theme-toggle" onclick="modeSwitcher()"><div></div></button></div><time datetime="2024-02-20T00:00:00+00:00">Feb 20, 2024 </time><h1 class="title"> Google Comprehensive Rust Course</h1><span class="meta"> </span><h1 id="comprehensive-rust-"> Comprehensive Rust 🦀 <a href="#comprehensive-rust-">#</a></h1><h2 id="basics"> Basics <a href="#basics">#</a></h2><h3 id="hello-world"> Hello World! <a href="#hello-world">#</a></h3><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"Hello 🌍!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><ul><li><p>Functions are introduced with <code class="language-plaintext highlighter-rouge">fn</code>.</p></li><li><p>Blocks are delimited by curly braces.</p></li><li><p>The main function is the entry point of the program.</p></li><li><p>Rust has hygienic macros, <code class="language-plaintext highlighter-rouge">println!</code> is an example of this.</p></li><li><p>Rust strings are UTF-8 encoded and can contain any Unicode character.</p></li></ul><h3 id="variables"> Variables <a href="#variables">#</a></h3><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">x</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"x: {x}"</span><span class="p">);</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"x: {x}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><ul><li><p>The <code class="language-plaintext highlighter-rouge">mut</code> keyword to allow changes.</p></li><li><p>The <code class="language-plaintext highlighter-rouge">i32</code> here is the type of the variable.</p></li></ul><h3 id="values"> Values <a href="#values">#</a></h3><p>Here are some basic built-in types, and the syntax for literal values of each type.</p><table><thead><tr><th> </th><th>Types</th><th>Literals</th></tr></thead><tbody><tr><td>Signed integers</td><td>i8, i16, i32, i64, i128, isize</td><td>-10, 0, 1_000, 123_i64</td></tr><tr><td>Unsigned integers</td><td>u8, u16, u32, u64, u128, usize</td><td>0, 123, 10_u16</td></tr><tr><td>Floating point numbers</td><td>f32, f64</td><td>3.14, -10.0e20, 2_f32</td></tr><tr><td>Unicode scalar values</td><td>char</td><td>‘a’, ‘α’, ‘∞’</td></tr><tr><td>Booleans</td><td>bool</td><td>true, false</td></tr></tbody></table><p>The types have widths as follows:</p><ul><li><code class="language-plaintext highlighter-rouge">iN</code>, <code class="language-plaintext highlighter-rouge">uN</code>, and <code class="language-plaintext highlighter-rouge">fN</code> are <code class="language-plaintext highlighter-rouge">N</code> bits wide,</li><li><code class="language-plaintext highlighter-rouge">isize</code> and <code class="language-plaintext highlighter-rouge">usize</code> are the width of a pointer,</li><li><code class="language-plaintext highlighter-rouge">char</code> is 32 bits wide,</li><li><code class="language-plaintext highlighter-rouge">bool</code> is 8 bits wide.</li></ul><h3 id="arithmetic"> Arithmetic <a href="#arithmetic">#</a></h3><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">interproduct</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="nb">i32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">i32</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">c</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"result: {}"</span><span class="p">,</span> <span class="nf">interproduct</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">120</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div><p>If we change the <code class="language-plaintext highlighter-rouge">i32’s</code> to <code class="language-plaintext highlighter-rouge">i16</code> to see an integer overflow, which panics (checked) in a debug build and wraps in a release build.</p><h3 id="strings"> Strings <a href="#strings">#</a></h3><ul><li><code class="language-plaintext highlighter-rouge">String</code> : a modifiable, owned string.</li><li><code class="language-plaintext highlighter-rouge">&amp;str</code> : a read-only string. String literals have this type.</li></ul><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c">// Concatenating strings</span>
+    <span class="k">let</span> <span class="n">greeting</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">name</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"Murali"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">message</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="n">message</span><span class="nf">.push_str</span><span class="p">(</span><span class="n">greeting</span><span class="p">);</span>
+    <span class="n">message</span><span class="nf">.push_str</span><span class="p">(</span><span class="s">" "</span><span class="p">);</span>
+    <span class="n">message</span><span class="nf">.push_str</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"Message: {}"</span><span class="p">,</span> <span class="n">message</span><span class="p">);</span>
+
+    <span class="c">// Slicing a string</span>
+    <span class="k">let</span> <span class="n">full_name</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"Murali Gari"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">first_name</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">full_name</span><span class="p">[</span><span class="mi">0</span><span class="o">..</span><span class="mi">4</span><span class="p">];</span> <span class="c">// Slice from index  0 to 4</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"First name: {}"</span><span class="p">,</span> <span class="n">first_name</span><span class="p">);</span>
+
+    <span class="c">// Modifying a string</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">greeting</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"Good morning"</span><span class="p">);</span>
+    <span class="n">greeting</span><span class="nf">.push_str</span><span class="p">(</span><span class="s">", "</span><span class="p">);</span>
+    <span class="n">greeting</span><span class="nf">.push_str</span><span class="p">(</span><span class="s">"world!"</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"Greeting: {}"</span><span class="p">,</span> <span class="n">greeting</span><span class="p">);</span>
+
+    <span class="c">// String interpolation</span>
+    <span class="k">let</span> <span class="n">name</span> <span class="o">=</span> <span class="s">"Murali"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">age</span> <span class="o">=</span>  <span class="mi">21</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">greeting</span> <span class="o">=</span> <span class="nd">format!</span><span class="p">(</span><span class="s">"Hello, {}! You are {} years old."</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">greeting</span><span class="p">);</span>
+
+    <span class="c">// String concatenation using `+`</span>
+    <span class="k">let</span> <span class="n">hello</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">world</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"World!"</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">hello_world</span> <span class="o">=</span> <span class="n">hello</span> <span class="o">+</span> <span class="s">" "</span> <span class="o">+</span> <span class="o">&amp;</span><span class="n">world</span><span class="p">;</span> <span class="c">// `&amp;world` to create a reference</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="n">hello_world</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="type-inference"> Type Inference <a href="#type-inference">#</a></h3><p>Type inference in Rust allows the compiler to deduce the type of an expression without explicit type annotations.</p><ol><li><strong>Literal Type Inference</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">10</span><span class="p">;</span> <span class="c">// x is inferred to be i32</span>
+<span class="k">let</span> <span class="n">y</span> <span class="o">=</span>  <span class="mf">10.0</span><span class="p">;</span> <span class="c">// y is inferred to be f64</span>
+<span class="k">let</span> <span class="n">z</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span> <span class="c">// z is inferred to be bool</span>
+</code></pre></div></div></li><li><strong>Function Return Type Inference</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">i32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">i32</span> <span class="p">{</span>
+    <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="p">}</span> <span class="c">// The return type is inferred to be i32</span>
+</code></pre></div></div></li><li><strong>Variable Type Inference</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">10</span><span class="p">;</span> <span class="c">// x is inferred to be i32</span>
+<span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span>  <span class="mi">20</span><span class="p">;</span> <span class="c">// y is inferred to be i32</span>
+</code></pre></div></div></li><li><strong>Struct Type Inference</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Point</span> <span class="p">{</span>
+    <span class="n">x</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="n">p</span> <span class="o">=</span> <span class="n">Point</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span>  <span class="mi">10</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span>  <span class="mi">20</span> <span class="p">};</span> <span class="c">// p is inferred to be Point</span>
+</code></pre></div></div></li><li><strong>Enum Type Inference</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="n">Message</span> <span class="p">{</span>
+    <span class="n">Quit</span><span class="p">,</span>
+    <span class="n">Move</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="nb">i32</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">i32</span> <span class="p">},</span>
+    <span class="nf">Write</span><span class="p">(</span><span class="nb">String</span><span class="p">),</span>
+    <span class="nf">ChangeColor</span><span class="p">(</span><span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="n">m</span> <span class="o">=</span> <span class="nn">Message</span><span class="p">::</span><span class="nf">Write</span><span class="p">(</span><span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"hello"</span><span class="p">));</span> <span class="c">// m is inferred to be Message</span>
+</code></pre></div></div></li><li><strong>Trait Object Type Inference</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">trait</span> <span class="n">Animal</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">make_noise</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="n">animal</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">dyn</span> <span class="n">Animal</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">Dog</span><span class="p">;</span> <span class="c">// animal is inferred to be &amp;dyn Animal</span>
+</code></pre></div></div></li><li><strong>Closure Type Inference</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">add_one</span> <span class="o">=</span> <span class="p">|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span> <span class="o">+</span>  <span class="mi">1</span><span class="p">;</span> <span class="c">// add_one is inferred to be a closure that takes an i32 and returns an i32</span>
+</code></pre></div></div></li><li><strong>Generic Type Inference</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="n">largest</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">list</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="n">T</span><span class="p">])</span> <span class="k">-&gt;</span> <span class="n">T</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">largest</span> <span class="o">=</span> <span class="n">list</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+    <span class="k">for</span> <span class="o">&amp;</span><span class="n">item</span> <span class="n">in</span> <span class="n">list</span><span class="nf">.iter</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">item</span> <span class="o">&gt;</span> <span class="n">largest</span> <span class="p">{</span>
+            <span class="n">largest</span> <span class="o">=</span> <span class="n">item</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">largest</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="n">number_list</span> <span class="o">=</span> <span class="nd">vec!</span><span class="p">[</span><span class="mi">34</span><span class="p">,</span>  <span class="mi">50</span><span class="p">,</span>  <span class="mi">25</span><span class="p">,</span>  <span class="mi">100</span><span class="p">,</span>  <span class="mi">65</span><span class="p">];</span>
+<span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">largest</span><span class="p">(</span><span class="o">&amp;</span><span class="n">number_list</span><span class="p">);</span> <span class="c">// result is inferred to be i32</span>
+</code></pre></div></div></li><li><strong>Type Inference with <code class="language-plaintext highlighter-rouge">let</code> Statements</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">guess</span> <span class="o">=</span> <span class="s">"42"</span><span class="nf">.parse</span><span class="p">()</span><span class="nf">.expect</span><span class="p">(</span><span class="s">"Not a number!"</span><span class="p">);</span> <span class="c">// guess is inferred to be i32</span>
+</code></pre></div></div></li><li><strong>Type Inference with <code class="language-plaintext highlighter-rouge">match</code> Statements</strong>:<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="n">value</span> <span class="o">=</span> <span class="nf">Some</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="k">match</span> <span class="n">value</span> <span class="p">{</span>
+    <span class="nf">Some</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Got an integer: {}"</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span> <span class="c">// i is inferred to be i32</span>
+    <span class="mi">_</span> <span class="k">=&gt;</span> <span class="p">(),</span>
+<span class="p">}</span>
+</code></pre></div></div></li></ol><p>Rust’s type inference system determines the type of the variable or expression based on the context in which it is used.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">takes_u32</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">u32</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"u32: {x}"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">takes_i8</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="nb">i8</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"i8: {y}"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+
+    <span class="nf">takes_u32</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="nf">takes_i8</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
+    <span class="c">// takes_u32(y);</span>
+<span class="p">}</span>
+</code></pre></div></div><p>When nothing constrains the type of an integer literal, Rust defaults to <code class="language-plaintext highlighter-rouge">i32</code>. Similarly, floating-point literals default to <code class="language-plaintext highlighter-rouge">f64</code>.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">3.14</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+    <span class="c">// ERROR: no implementation for `{float} == {integer}`</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="loops"> Loops <a href="#loops">#</a></h2><h3 id="while"> while <a href="#while">#</a></h3><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+     <span class="k">let</span> <span class="k">mut</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+     <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="p">{</span>
+         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+     <span class="p">}</span>
+     <span class="nd">println!</span><span class="p">(</span><span class="s">"Final x: {x}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="for"> for <a href="#for">#</a></h3><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="n">in</span> <span class="mi">1</span><span class="o">..</span><span class="mi">5</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"x: {x}"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c">// loop : loop forever until a break statement</span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">loop</span> <span class="p">{</span>
+        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"{i}"</span><span class="p">);</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">100</span> <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div><h2 id="outer-and-inner-labels-in-nested-loops"> Outer and inner labels in nested loops <a href="#outer-and-inner-labels-in-nested-loops">#</a></h2><p>loop labels are required to <code class="language-plaintext highlighter-rouge">break</code> or <code class="language-plaintext highlighter-rouge">continue</code> out of multiple levels of a nested loop.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nv">'outer</span><span class="p">:</span> <span class="k">for</span> <span class="n">x</span> <span class="n">in</span> <span class="mi">1</span><span class="o">..</span><span class="mi">5</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"x: {x}"</span><span class="p">);</span>
+        <span class="k">let</span> <span class="k">mut</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="p">{</span>
+            <span class="nd">println!</span><span class="p">(</span><span class="s">"x: {x}, i: {i}"</span><span class="p">);</span>
+            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">4</span> <span class="p">{</span>
+                <span class="k">break</span> <span class="nv">'outer</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div><h3 id="break"> Break <a href="#break">#</a></h3><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="p">(</span><span class="k">mut</span> <span class="n">a</span><span class="p">,</span> <span class="k">mut</span> <span class="n">b</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">52</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="k">loop</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span> <span class="p">{</span>
+            <span class="k">break</span> <span class="n">a</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span> <span class="p">{</span>
+            <span class="n">b</span> <span class="o">-=</span> <span class="n">a</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">a</span> <span class="o">-=</span> <span class="n">b</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{result}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="functions"> functions <a href="#functions">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">u32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">u32</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"gcd is {}"</span><span class="p">,</span> <span class="nf">gcd</span><span class="p">(</span><span class="mi">6543</span><span class="p">,</span> <span class="mi">432</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="macros"> Macros <a href="#macros">#</a></h2><p>Macros are distinguished by a <code class="language-plaintext highlighter-rouge">!</code> at the end.</p><ul><li><p><code class="language-plaintext highlighter-rouge">println!(format, ..)</code> prints a line to standard output, applying formatting described in <code class="language-plaintext highlighter-rouge">std::fmt.</code></p></li><li><p><code class="language-plaintext highlighter-rouge">format!(format, ..)</code> works just like println! but returns the result as a string.</p></li><li><p><code class="language-plaintext highlighter-rouge">dbg!(expression)</code> logs the value of the expression and returns it.</p></li><li><p><code class="language-plaintext highlighter-rouge">todo!()</code> marks a bit of code as not-yet-implemented. If executed, it will panic.</p></li><li><p><code class="language-plaintext highlighter-rouge">unreachable!()</code> marks a bit of code as unreachable. If executed, it will panic.</p></li></ul><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">fn</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">u32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">u32</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">product</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="n">in</span> <span class="mi">1</span><span class="o">..=</span><span class="n">n</span> <span class="p">{</span>
+        <span class="n">product</span> <span class="o">*=</span> <span class="nd">dbg!</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">product</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">fizzbuzz</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">u32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">u32</span> <span class="p">{</span>
+    <span class="nd">todo!</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{n}! = {}"</span><span class="p">,</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">));</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="collatz-sequence"> Collatz Sequence <a href="#collatz-sequence">#</a></h2><p><strong>Determine the length of the collatz sequence beginning at <code class="language-plaintext highlighter-rouge">n</code>.</strong></p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">collatz_length</span><span class="p">(</span><span class="k">mut</span> <span class="n">n</span><span class="p">:</span> <span class="nb">i32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">u32</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">while</span> <span class="n">n</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">{</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">count</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span> 
+    <span class="p">}</span>
+    <span class="n">count</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nd">println!</span><span class="p">(</span><span class="s">"Length is {}"</span><span class="p">,</span> <span class="nf">collatz_length</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="transposed-matrix"> Transposed matrix <a href="#transposed-matrix">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">transpose</span><span class="p">(</span><span class="n">matrix</span><span class="p">:</span> <span class="p">[[</span><span class="nb">i32</span><span class="p">;</span> <span class="mi">3</span><span class="p">];</span> <span class="mi">3</span><span class="p">])</span> <span class="k">-&gt;</span> <span class="p">[[</span><span class="nb">i32</span><span class="p">;</span> <span class="mi">3</span><span class="p">];</span> <span class="mi">3</span><span class="p">]</span> <span class="p">{</span>
+   <span class="k">let</span> <span class="k">mut</span> <span class="n">transposed</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">;</span> <span class="mi">3</span><span class="p">];</span> <span class="mi">3</span><span class="p">];</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="n">in</span> <span class="mi">0</span><span class="o">..</span><span class="mi">3</span> <span class="p">{</span>
+       <span class="k">for</span> <span class="n">j</span> <span class="n">in</span> <span class="mi">0</span><span class="o">..</span><span class="mi">3</span> <span class="p">{</span>
+           <span class="n">transposed</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+       <span class="p">}</span>
+   <span class="p">}</span>
+   <span class="n">transposed</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+   <span class="k">let</span> <span class="n">matrix</span> <span class="o">=</span> <span class="p">[</span>
+       <span class="p">[</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">201</span><span class="p">,</span> <span class="mi">202</span><span class="p">,</span> <span class="mi">203</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">301</span><span class="p">,</span> <span class="mi">302</span><span class="p">,</span> <span class="mi">303</span><span class="p">],</span>
+   <span class="p">];</span>
+
+   <span class="nd">println!</span><span class="p">(</span><span class="s">"matrix: {:#?}"</span><span class="p">,</span> <span class="n">matrix</span><span class="p">);</span>
+   <span class="k">let</span> <span class="n">transposed</span> <span class="o">=</span> <span class="nf">transpose</span><span class="p">(</span><span class="n">matrix</span><span class="p">);</span>
+   <span class="nd">println!</span><span class="p">(</span><span class="s">"transposed: {:#?}"</span><span class="p">,</span> <span class="n">transposed</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="structs"> Structs <a href="#structs">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Foo</span> <span class="p">{</span>
+    <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="nb">u32</span><span class="p">,</span> <span class="nb">u32</span><span class="p">),</span>
+    <span class="n">y</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="nd">#[rustfmt::skip]</span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">foo</span> <span class="o">=</span> <span class="n">Foo</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">y</span><span class="p">:</span> <span class="mi">3</span> <span class="p">};</span>
+    <span class="k">match</span> <span class="n">foo</span> <span class="p">{</span>
+        <span class="n">Foo</span> <span class="p">{</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">b</span><span class="p">),</span> <span class="n">y</span> <span class="p">}</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"x.0 = 1, b = {b}, y = {y}"</span><span class="p">),</span>
+        <span class="n">Foo</span> <span class="p">{</span> <span class="n">y</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">i</span> <span class="p">}</span>   <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"y = 2, x = {i:?}"</span><span class="p">),</span>
+        <span class="n">Foo</span> <span class="p">{</span> <span class="n">y</span><span class="p">,</span> <span class="o">..</span> <span class="p">}</span>        <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"y = {y}, other fields were ignored"</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="enums"> Enums <a href="#enums">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">enum</span> <span class="n">Result</span> <span class="p">{</span>
+    <span class="nf">Ok</span><span class="p">(</span><span class="nb">i32</span><span class="p">),</span>
+    <span class="nf">Err</span><span class="p">(</span><span class="nb">String</span><span class="p">),</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">divide_in_two</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">i32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">{</span>
+        <span class="nn">Result</span><span class="p">::</span><span class="nf">Ok</span><span class="p">(</span><span class="n">n</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="nn">Result</span><span class="p">::</span><span class="nf">Err</span><span class="p">(</span><span class="nd">format!</span><span class="p">(</span><span class="s">"cannot divide {n} into two equal parts"</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+    <span class="k">match</span> <span class="nf">divide_in_two</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nn">Result</span><span class="p">::</span><span class="nf">Ok</span><span class="p">(</span><span class="n">half</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"{n} divided in two is {half}"</span><span class="p">),</span>
+        <span class="nn">Result</span><span class="p">::</span><span class="nf">Err</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"sorry, an error happened: {msg}"</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div><h2 id="reverse-a-string"> Reverse a string <a href="#reverse-a-string">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">name</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"Comprehensive Rust 🦀"</span><span class="p">);</span>
+    <span class="k">while</span> <span class="k">let</span> <span class="nf">Some</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">=</span> <span class="n">name</span><span class="nf">.pop</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"character: {c}"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="vec"> Vec <a href="#vec">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">v1</span> <span class="o">=</span> <span class="nn">Vec</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="n">v1</span><span class="nf">.push</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"v1: len = {}, capacity = {}"</span><span class="p">,</span> <span class="n">v1</span><span class="nf">.len</span><span class="p">(),</span> <span class="n">v1</span><span class="nf">.capacity</span><span class="p">());</span>
+
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">v2</span> <span class="o">=</span> <span class="nn">Vec</span><span class="p">::</span><span class="nf">with_capacity</span><span class="p">(</span><span class="n">v1</span><span class="nf">.len</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="n">v2</span><span class="nf">.extend</span><span class="p">(</span><span class="n">v1</span><span class="nf">.iter</span><span class="p">());</span>
+    <span class="n">v2</span><span class="nf">.push</span><span class="p">(</span><span class="mi">9999</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"v2: len = {}, capacity = {}"</span><span class="p">,</span> <span class="n">v2</span><span class="nf">.len</span><span class="p">(),</span> <span class="n">v2</span><span class="nf">.capacity</span><span class="p">());</span>
+
+    <span class="c">// Canonical macro to initialize a vector with elements.</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">v3</span> <span class="o">=</span> <span class="nd">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+    <span class="c">// Retain only the even elements.</span>
+    <span class="n">v3</span><span class="nf">.retain</span><span class="p">(|</span><span class="n">x</span><span class="p">|</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{v3:?}"</span><span class="p">);</span>
+
+    <span class="c">// Remove consecutive duplicates.</span>
+    <span class="n">v3</span><span class="nf">.dedup</span><span class="p">();</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{v3:?}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="hashmap"> HashMap <a href="#hashmap">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">collections</span><span class="p">::</span><span class="n">HashMap</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">page_counts</span> <span class="o">=</span> <span class="nn">HashMap</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="n">page_counts</span><span class="nf">.insert</span><span class="p">(</span><span class="s">"Adventures of Huckleberry Finn"</span><span class="nf">.to_string</span><span class="p">(),</span> <span class="mi">207</span><span class="p">);</span>
+    <span class="n">page_counts</span><span class="nf">.insert</span><span class="p">(</span><span class="s">"Grimms' Fairy Tales"</span><span class="nf">.to_string</span><span class="p">(),</span> <span class="mi">751</span><span class="p">);</span>
+    <span class="n">page_counts</span><span class="nf">.insert</span><span class="p">(</span><span class="s">"Pride and Prejudice"</span><span class="nf">.to_string</span><span class="p">(),</span> <span class="mi">303</span><span class="p">);</span>
+
+    <span class="k">if</span> <span class="o">!</span><span class="n">page_counts</span><span class="nf">.contains_key</span><span class="p">(</span><span class="s">"Les Misérables"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span>
+            <span class="s">"We know about {} books, but not Les Misérables."</span><span class="p">,</span>
+            <span class="n">page_counts</span><span class="nf">.len</span><span class="p">()</span>
+        <span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">book</span> <span class="n">in</span> <span class="p">[</span><span class="s">"Pride and Prejudice"</span><span class="p">,</span> <span class="s">"Alice's Adventure in Wonderland"</span><span class="p">]</span> <span class="p">{</span>
+        <span class="k">match</span> <span class="n">page_counts</span><span class="nf">.get</span><span class="p">(</span><span class="n">book</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">Some</span><span class="p">(</span><span class="n">count</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"{book}: {count} pages"</span><span class="p">),</span>
+            <span class="nb">None</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"{book} is unknown."</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c">// Use the .entry() method to insert a value if nothing is found.</span>
+    <span class="k">for</span> <span class="n">book</span> <span class="n">in</span> <span class="p">[</span><span class="s">"Pride and Prejudice"</span><span class="p">,</span> <span class="s">"Alice's Adventure in Wonderland"</span><span class="p">]</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">page_count</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="nb">i32</span> <span class="o">=</span> <span class="n">page_counts</span><span class="nf">.entry</span><span class="p">(</span><span class="n">book</span><span class="nf">.to_string</span><span class="p">())</span><span class="nf">.or_insert</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="o">*</span><span class="n">page_count</span> <span class="o">+=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{page_counts:#?}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="triats"> Triats <a href="#triats">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">trait</span> <span class="n">Shape</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">Circle</span> <span class="p">{</span>
+    <span class="n">radius</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Shape</span> <span class="k">for</span> <span class="n">Circle</span> <span class="p">{</span>    <span class="c">// Implement the 'Shape' trait for a 'Circle' struct</span>
+    <span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+        <span class="nn">std</span><span class="p">::</span><span class="nn">f64</span><span class="p">::</span><span class="nn">consts</span><span class="p">::</span><span class="n">PI</span> <span class="o">*</span> <span class="k">self</span><span class="py">.radius</span> <span class="o">*</span> <span class="k">self</span><span class="py">.radius</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">Rectangle</span> <span class="p">{</span>
+    <span class="n">width</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+    <span class="n">height</span><span class="p">:</span> <span class="nb">f64</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Shape</span> <span class="k">for</span> <span class="n">Rectangle</span> <span class="p">{</span>    <span class="c">// Implement the 'Shape' trait for a 'Rectangle' struct</span>
+    <span class="k">fn</span> <span class="nf">area</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">f64</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.width</span> <span class="o">*</span> <span class="k">self</span><span class="py">.height</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c">// Create instances of 'Circle' and 'Rectangle'</span>
+    <span class="k">let</span> <span class="n">circle</span> <span class="o">=</span> <span class="n">Circle</span> <span class="p">{</span> <span class="n">radius</span><span class="p">:</span> <span class="mf">5.0</span> <span class="p">};</span>
+    <span class="k">let</span> <span class="n">rectangle</span> <span class="o">=</span> <span class="n">Rectangle</span> <span class="p">{</span> <span class="n">width</span><span class="p">:</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">height</span><span class="p">:</span> <span class="mf">6.0</span> <span class="p">};</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"Circle area: {}"</span><span class="p">,</span> <span class="n">circle</span><span class="nf">.area</span><span class="p">());</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"Rectangle area: {}"</span><span class="p">,</span> <span class="n">rectangle</span><span class="nf">.area</span><span class="p">());</span>
+<span class="p">}</span>
+
+</code></pre></div></div><h2 id="from-and-into"> From and Into <a href="#from-and-into">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// From</span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">s</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"hello"</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">addr</span> <span class="o">=</span> <span class="nn">std</span><span class="p">::</span><span class="nn">net</span><span class="p">::</span><span class="nn">Ipv4Addr</span><span class="p">::</span><span class="nf">from</span><span class="p">([</span><span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]);</span>
+    <span class="k">let</span> <span class="n">one</span> <span class="o">=</span> <span class="nn">i16</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">bigger</span> <span class="o">=</span> <span class="nn">i32</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="mi">123_i32</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{s}, {addr}, {one}, {bigger}"</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c">// Intro</span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">s</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="s">"hello"</span><span class="nf">.into</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">addr</span><span class="p">:</span> <span class="nn">std</span><span class="p">::</span><span class="nn">net</span><span class="p">::</span><span class="n">Ipv4Addr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">127</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="nf">.into</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">one</span><span class="p">:</span> <span class="nb">i16</span> <span class="o">=</span> <span class="k">true</span><span class="nf">.into</span><span class="p">();</span>
+    <span class="k">let</span> <span class="n">bigger</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">123_i16</span><span class="nf">.into</span><span class="p">();</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{s}, {addr}, {one}, {bigger}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="casting-as-tryfrom-tryinto"> Casting: as, TryFrom, TryInto <a href="#casting-as-tryfrom-tryinto">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// as</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span><span class="p">:</span> <span class="nb">i64</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"as u16: {}"</span><span class="p">,</span> <span class="n">value</span> <span class="k">as</span> <span class="nb">u16</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"as i16: {}"</span><span class="p">,</span> <span class="n">value</span> <span class="k">as</span> <span class="nb">i16</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"as u8: {}"</span><span class="p">,</span> <span class="n">value</span> <span class="k">as</span> <span class="nb">u8</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">convert</span><span class="p">::</span><span class="n">TryFrom</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">convert</span><span class="p">::</span><span class="n">TryInto</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span><span class="p">:</span> <span class="nb">u32</span> <span class="o">=</span>  <span class="mi">1000</span><span class="p">;</span>
+
+    <span class="c">// Attempt to cast to u16</span>
+    <span class="k">match</span> <span class="n">value</span><span class="nf">.try_into</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Value as u16: {}"</span><span class="p">,</span> <span class="n">val</span><span class="p">),</span>
+        <span class="nf">Err</span><span class="p">(</span><span class="mi">_</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Failed to convert to u16"</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="c">// Attempt to cast to i16</span>
+    <span class="k">match</span> <span class="n">value</span><span class="nf">.try_into</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Value as i16: {}"</span><span class="p">,</span> <span class="n">val</span><span class="p">),</span>
+        <span class="nf">Err</span><span class="p">(</span><span class="mi">_</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Failed to convert to i16"</span><span class="p">),</span>
+    <span class="p">}</span>
+
+    <span class="c">// Attempt to cast to u8</span>
+    <span class="k">match</span> <span class="n">value</span><span class="nf">.try_into</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Value as u8: {}"</span><span class="p">,</span> <span class="n">val</span><span class="p">),</span>
+        <span class="nf">Err</span><span class="p">(</span><span class="mi">_</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Failed to convert to u8"</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="trait-objects"> Trait objects <a href="#trait-objects">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[allow(dead_code)]</span>
+<span class="k">struct</span> <span class="n">Dog</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="n">age</span><span class="p">:</span> <span class="nb">i8</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="k">struct</span> <span class="n">Cat</span> <span class="p">{</span>
+    <span class="n">lives</span><span class="p">:</span> <span class="nb">i8</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">trait</span> <span class="n">Pet</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">talk</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Pet</span> <span class="k">for</span> <span class="n">Dog</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">talk</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="nd">format!</span><span class="p">(</span><span class="s">"My name is {}!"</span><span class="p">,</span> <span class="k">self</span><span class="py">.name</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Pet</span> <span class="k">for</span> <span class="n">Cat</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">talk</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"Mia!"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">pets</span><span class="p">:</span> <span class="nb">Vec</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">dyn</span> <span class="n">Pet</span><span class="o">&gt;&gt;</span> <span class="o">=</span> <span class="nd">vec!</span><span class="p">[</span>
+        <span class="nn">Box</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">Cat</span> <span class="p">{</span> <span class="n">lives</span><span class="p">:</span> <span class="mi">9</span> <span class="p">}),</span>
+        <span class="nn">Box</span><span class="p">::</span><span class="nf">new</span><span class="p">(</span><span class="n">Dog</span> <span class="p">{</span> <span class="n">name</span><span class="p">:</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"Fida"</span><span class="p">),</span> <span class="n">age</span><span class="p">:</span> <span class="mi">5</span> <span class="p">}),</span>
+    <span class="p">];</span>
+    <span class="k">for</span> <span class="n">pet</span> <span class="n">in</span> <span class="n">pets</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"Hi, who are you? {}"</span><span class="p">,</span> <span class="n">pet</span><span class="nf">.talk</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{} {}"</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">mem</span><span class="p">::</span><span class="nn">size_of</span><span class="p">::</span><span class="o">&lt;</span><span class="n">Dog</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nn">std</span><span class="p">::</span><span class="nn">mem</span><span class="p">::</span><span class="nn">size_of</span><span class="p">::</span><span class="o">&lt;</span><span class="n">Cat</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{} {}"</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">mem</span><span class="p">::</span><span class="nn">size_of</span><span class="p">::</span><span class="o">&lt;&amp;</span><span class="n">Dog</span><span class="o">&gt;</span><span class="p">(),</span> <span class="nn">std</span><span class="p">::</span><span class="nn">mem</span><span class="p">::</span><span class="nn">size_of</span><span class="p">::</span><span class="o">&lt;&amp;</span><span class="n">Cat</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">mem</span><span class="p">::</span><span class="nn">size_of</span><span class="p">::</span><span class="o">&lt;&amp;</span><span class="n">dyn</span> <span class="n">Pet</span><span class="o">&gt;</span><span class="p">());</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{}"</span><span class="p">,</span> <span class="nn">std</span><span class="p">::</span><span class="nn">mem</span><span class="p">::</span><span class="nn">size_of</span><span class="p">::</span><span class="o">&lt;</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">dyn</span> <span class="n">Pet</span><span class="o">&gt;&gt;</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="borrowing-value"> Borrowing Value <a href="#borrowing-value">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[derive(Debug)]</span>
+<span class="k">struct</span> <span class="nf">Point</span><span class="p">(</span><span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">);</span>
+
+<span class="k">fn</span> <span class="nf">add</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Point</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">Point</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Point</span> <span class="p">{</span>  <span class="c">// The add function borrows two points and returns a new point.</span>
+    <span class="nf">Point</span><span class="p">(</span><span class="n">p1</span><span class="na">.0</span> <span class="o">+</span> <span class="n">p2</span><span class="na">.0</span><span class="p">,</span> <span class="n">p1</span><span class="na">.1</span> <span class="o">+</span> <span class="n">p2</span><span class="na">.1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">p1</span> <span class="o">=</span> <span class="nf">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">p2</span> <span class="o">=</span> <span class="nf">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">p3</span> <span class="o">=</span> <span class="nf">add</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">p2</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"{p1:?} + {p2:?} = {p3:?}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="borrow-checking"> Borrow Checking <a href="#borrow-checking">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">a</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">b</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">i32</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">;</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"b: {b}"</span><span class="p">);</span> <span class="c">// The code does not compile because a is borrowed as mutable (through c) and as immutable (through b) at the same time.</span>
+
+    <span class="p">{</span>
+        <span class="k">let</span> <span class="n">c</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="nb">i32</span> <span class="o">=</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">a</span><span class="p">;</span>
+        <span class="o">*</span><span class="n">c</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"a: {a}"</span><span class="p">);</span>
+    <span class="c">// println!("b: {b}");</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="slicing"> Slicing <a href="#slicing">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">a</span><span class="p">:</span> <span class="p">[</span><span class="nb">i32</span><span class="p">;</span> <span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">];</span>   
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"a: {a:?}"</span><span class="p">);</span>  
+
+    <span class="k">let</span> <span class="n">s</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">i32</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="o">..</span><span class="mi">4</span><span class="p">];</span>   <span class="c">//If the slice starts at index 0, &amp;a[0..a.len()] and &amp;a[..a.len()] are identical.</span>
+
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"s: {s:?}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="number-validation"> Number Validation <a href="#number-validation">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="n">io</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">(){</span>
+
+   <span class="k">let</span> <span class="k">mut</span> <span class="n">x</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+
+   <span class="nd">println!</span><span class="p">(</span><span class="s">"Please enter a number: "</span><span class="p">);</span>
+
+   <span class="nn">io</span><span class="p">::</span><span class="nf">stdin</span><span class="p">()</span><span class="nf">.read_line</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">x</span><span class="p">)</span><span class="nf">.unwrap</span><span class="p">();</span>
+
+   <span class="k">let</span> <span class="n">x</span><span class="p">:</span> <span class="nb">i32</span> <span class="o">=</span> <span class="k">match</span> <span class="n">x</span><span class="nf">.trim</span><span class="p">()</span><span class="nf">.parse</span><span class="p">()</span> <span class="p">{</span>    
+    <span class="nf">Ok</span><span class="p">(</span><span class="n">num</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="n">num</span><span class="p">,</span>
+    <span class="nf">Err</span><span class="p">(</span><span class="mi">_</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="p">{</span>                
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"That's not a valid number!"</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">},</span>
+   <span class="p">};</span>
+
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="p">{</span>        
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"small"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">100</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"Medium"</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"Large"</span><span class="p">);</span>
+    <span class="p">}</span>    
+<span class="p">}</span>
+</code></pre></div></div><h2 id="string-references"> String References <a href="#string-references">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">s1</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"World"</span><span class="p">;</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"s1: {s1}"</span><span class="p">);</span>
+
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">s2</span><span class="p">:</span> <span class="nb">String</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">from</span><span class="p">(</span><span class="s">"Hello "</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"s2: {s2}"</span><span class="p">);</span>
+    <span class="n">s2</span><span class="nf">.push_str</span><span class="p">(</span><span class="n">s1</span><span class="p">);</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"s2: {s2}"</span><span class="p">);</span>
+
+    <span class="k">let</span> <span class="n">s3</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">s2</span><span class="p">[</span><span class="mi">6</span><span class="o">..</span><span class="p">];</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"s3: {s3}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="lifetime-annotations"> Lifetime Annotations <a href="#lifetime-annotations">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[derive(Debug)]</span>
+<span class="k">struct</span> <span class="nf">Point</span><span class="p">(</span><span class="nb">i32</span><span class="p">,</span> <span class="nb">i32</span><span class="p">);</span>
+
+<span class="k">fn</span> <span class="n">left_most</span><span class="o">&lt;</span><span class="nv">'a</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p1</span><span class="p">:</span> <span class="o">&amp;</span><span class="nv">'a</span> <span class="n">Point</span><span class="p">,</span> <span class="n">p2</span><span class="p">:</span> <span class="o">&amp;</span><span class="nv">'a</span> <span class="n">Point</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nv">'a</span> <span class="n">Point</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="n">p1</span><span class="na">.0</span> <span class="o">&lt;</span> <span class="n">p2</span><span class="na">.0</span> <span class="p">{</span>
+        <span class="n">p1</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="n">p2</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">p1</span><span class="p">:</span> <span class="n">Point</span> <span class="o">=</span> <span class="nf">Point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">p2</span><span class="p">:</span> <span class="n">Point</span> <span class="o">=</span> <span class="nf">Point</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">);</span>
+    <span class="k">let</span> <span class="n">p3</span> <span class="o">=</span> <span class="nf">left_most</span><span class="p">(</span><span class="o">&amp;</span><span class="n">p1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">p2</span><span class="p">);</span> <span class="c">// What is the lifetime of p3?</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"p3: {p3:?}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><p><code class="language-plaintext highlighter-rouge">Lifetimes in Function Calls:</code>:</p><ul><li><p>Each argument which does not have a lifetime annotation is given one.</p></li><li><p>If there is only one argument lifetime, it is given to all un-annotated return values.</p></li><li><p>If there are multiple argument lifetimes, but the first one is for self, that lifetime is given to all un-annotated return values.</p></li></ul><h2 id="fibonacci-using-iterator-trait"> Fibonacci using Iterator trait <a href="#fibonacci-using-iterator-trait">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">Fibonacci</span> <span class="p">{</span>
+    <span class="n">curr</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+    <span class="n">next</span><span class="p">:</span> <span class="nb">u32</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">impl</span> <span class="n">Iterator</span> <span class="k">for</span> <span class="n">Fibonacci</span> <span class="p">{</span>
+    <span class="k">type</span> <span class="n">Item</span> <span class="o">=</span> <span class="nb">u32</span><span class="p">;</span>
+
+    <span class="k">fn</span> <span class="nf">next</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">Option</span><span class="o">&lt;</span><span class="nn">Self</span><span class="p">::</span><span class="n">Item</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">new_next</span> <span class="o">=</span> <span class="k">self</span><span class="py">.curr</span> <span class="o">+</span> <span class="k">self</span><span class="py">.next</span><span class="p">;</span>
+        <span class="k">self</span><span class="py">.curr</span> <span class="o">=</span> <span class="k">self</span><span class="py">.next</span><span class="p">;</span>
+        <span class="k">self</span><span class="py">.next</span> <span class="o">=</span> <span class="n">new_next</span><span class="p">;</span>
+        <span class="nf">Some</span><span class="p">(</span><span class="k">self</span><span class="py">.curr</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">fib</span> <span class="o">=</span> <span class="n">Fibonacci</span> <span class="p">{</span> <span class="n">curr</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="n">next</span><span class="p">:</span> <span class="mi">1</span> <span class="p">};</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="n">in</span> <span class="n">fib</span><span class="nf">.enumerate</span><span class="p">()</span><span class="nf">.take</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"fib({i}): {n}"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><ul><li><p><code class="language-plaintext highlighter-rouge">IntoIterator</code> defines how to create an iterator for a type.</p></li><li><p><code class="language-plaintext highlighter-rouge">FromIterator</code> lets you build a collection from an Iterator.</p></li></ul><h2 id="modules"> Modules <a href="#modules">#</a></h2><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">foo</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">do_something</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"In the foo module"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">mod</span> <span class="n">bar</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">do_something</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"In the bar module"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nn">foo</span><span class="p">::</span><span class="nf">do_something</span><span class="p">();</span>
+    <span class="nn">bar</span><span class="p">::</span><span class="nf">do_something</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="filesystem-hierarchy"> Filesystem hierarchy <a href="#filesystem-hierarchy">#</a></h3><ul><li><p>The main reason to introduce <code class="language-plaintext highlighter-rouge">filename.rs</code> as alternative to <code class="language-plaintext highlighter-rouge">filename/mod.rs</code> was because many files named <code class="language-plaintext highlighter-rouge">mod.rs</code> can be hard to distinguish in IDEs.</p></li><li><p>Deeper nesting can use folders, even if the main module is a file:</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>src/
+├── main.rs
+├── top_module.rs
+└── top_module/
+  └── sub_module.rs
+</code></pre></div></div></li></ul><h3 id="visibility"> Visibility <a href="#visibility">#</a></h3><p>Modules are a privacy boundary:</p><ul><li><p>Module items are private by default (hides implementation details).</p></li><li><p>Parent and sibling items are always visible.</p></li><li><p>In other words, if an item is visible in module foo, it’s visible in all the descendants of foo.</p></li></ul><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">outer</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">private</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"outer::private"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">public</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"outer::public"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">mod</span> <span class="n">inner</span> <span class="p">{</span>
+        <span class="k">fn</span> <span class="nf">private</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nd">println!</span><span class="p">(</span><span class="s">"outer::inner::private"</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">pub</span> <span class="k">fn</span> <span class="nf">public</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nd">println!</span><span class="p">(</span><span class="s">"outer::inner::public"</span><span class="p">);</span>
+            <span class="nn">super</span><span class="p">::</span><span class="nf">private</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nn">outer</span><span class="p">::</span><span class="nf">public</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div><p>In Rust, <code class="language-plaintext highlighter-rouge">use</code>, <code class="language-plaintext highlighter-rouge">super</code>, and <code class="language-plaintext highlighter-rouge">self</code> are used to refer to modules and their items.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// src/lib.rs</span>
+<span class="k">mod</span> <span class="n">foo</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"Called foo's function"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">pub</span> <span class="k">mod</span> <span class="n">bar</span> <span class="p">{</span>
+        <span class="k">pub</span> <span class="k">fn</span> <span class="nf">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="nd">println!</span><span class="p">(</span><span class="s">"Called bar's function"</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">// src/main.rs</span>
+<span class="k">use</span> <span class="nn">crate</span><span class="p">::</span><span class="nn">foo</span><span class="p">::</span><span class="n">bar</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nn">bar</span><span class="p">::</span><span class="nf">function</span><span class="p">();</span> 
+    <span class="nn">super</span><span class="p">::</span><span class="nn">foo</span><span class="p">::</span><span class="nf">function</span><span class="p">();</span> 
+    <span class="k">self</span><span class="p">::</span><span class="nn">foo</span><span class="p">::</span><span class="nf">function</span><span class="p">();</span> 
+<span class="p">}</span>
+</code></pre></div></div><ul><li><p><code class="language-plaintext highlighter-rouge">use crate::foo::bar;</code> imports the <code class="language-plaintext highlighter-rouge">bar</code> module from the <code class="language-plaintext highlighter-rouge">foo</code> module into the current scope.</p></li><li><p><code class="language-plaintext highlighter-rouge">super::foo::function();</code> calls the <code class="language-plaintext highlighter-rouge">function</code> from the <code class="language-plaintext highlighter-rouge">foo</code> module using <code class="language-plaintext highlighter-rouge">super</code>, which refers to the parent module.</p></li><li><p><code class="language-plaintext highlighter-rouge">self::foo::function();</code> calls the <code class="language-plaintext highlighter-rouge">function</code> from the <code class="language-plaintext highlighter-rouge">foo</code> module using <code class="language-plaintext highlighter-rouge">self</code>, which refers to the current module.</p></li></ul><p>The <code class="language-plaintext highlighter-rouge">use</code> keyword is used to bring items into scope, <code class="language-plaintext highlighter-rouge">super</code> is used to refer to the parent module, and <code class="language-plaintext highlighter-rouge">self</code> is used to refer to the current module.</p><h2 id="testing"> Testing <a href="#testing">#</a></h2><h3 id="unit-tests"> Unit Tests <a href="#unit-tests">#</a></h3><ul><li><p>Unit tests are supported throughout the code.</p></li><li><p>Unit tests are often put in a nested tests module, using <code class="language-plaintext highlighter-rouge">#[cfg(test)]</code> to conditionally compile them only when building tests.</p></li><li><p>The <code class="language-plaintext highlighter-rouge">#[cfg(test)]</code> attribute is only active when you run <code class="language-plaintext highlighter-rouge">cargo test</code>.</p></li></ul><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">do_something</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+    <span class="nd">format!</span><span class="p">(</span><span class="s">"Hello {}"</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nd">#[cfg(test)]</span>
+<span class="k">mod</span> <span class="n">tests</span> <span class="p">{</span>
+    <span class="k">use</span> <span class="nn">super</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">check_name</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">do_something</span><span class="p">(</span><span class="s">"Murali"</span><span class="p">);</span>
+        <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="n">result</span><span class="nf">.contains</span><span class="p">(</span><span class="s">"Murali"</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">check_lowercase</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">do_something</span><span class="p">(</span><span class="s">"Murali"</span><span class="p">);</span>
+        <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">result</span><span class="nf">.to_lowercase</span><span class="p">(),</span> <span class="s">"hello murali"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">check_starts_with</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">do_something</span><span class="p">(</span><span class="s">"Murali"</span><span class="p">);</span>
+        <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="n">result</span><span class="nf">.starts_with</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">check_ends_with</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">do_something</span><span class="p">(</span><span class="s">"Murali"</span><span class="p">);</span>
+        <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="n">result</span><span class="nf">.ends_with</span><span class="p">(</span><span class="s">"Murali"</span><span class="p">));</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">check_len</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">do_something</span><span class="p">(</span><span class="s">"Murali"</span><span class="p">);</span>
+        <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">result</span><span class="nf">.len</span><span class="p">(),</span> <span class="mi">12</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">check_is_empty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">empty_string</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+        <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="n">empty_string</span><span class="nf">.is_empty</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">check_trim</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="n">result</span> <span class="o">=</span> <span class="nf">do_something</span><span class="p">(</span><span class="s">"Murali"</span><span class="p">);</span>
+        <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">result</span><span class="nf">.trim</span><span class="p">(),</span> <span class="s">"Hello Murali"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">first_word</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="p">{</span>
+    <span class="k">match</span> <span class="n">text</span><span class="nf">.find</span><span class="p">(</span><span class="sc">' '</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">Some</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="o">&amp;</span><span class="n">text</span><span class="p">[</span><span class="o">..</span><span class="n">idx</span><span class="p">],</span>
+        <span class="nb">None</span> <span class="k">=&gt;</span> <span class="o">&amp;</span><span class="n">text</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nd">#[cfg(test)]</span>
+<span class="k">mod</span> <span class="n">tests</span> <span class="p">{</span>
+    <span class="k">use</span> <span class="nn">super</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">test_empty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">assert_eq!</span><span class="p">(</span><span class="nf">first_word</span><span class="p">(</span><span class="s">""</span><span class="p">),</span> <span class="s">""</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">test_single_word</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">assert_eq!</span><span class="p">(</span><span class="nf">first_word</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">),</span> <span class="s">"Hello"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">test_multiple_words</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">assert_eq!</span><span class="p">(</span><span class="nf">first_word</span><span class="p">(</span><span class="s">"Hello Murali"</span><span class="p">),</span> <span class="s">"Hello"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="integration-tests"> Integration Tests <a href="#integration-tests">#</a></h3><p>If we want to test our library as a client, use an integration test.</p><p>Create a <code class="language-plaintext highlighter-rouge">.rs</code> file under <code class="language-plaintext highlighter-rouge">tests/</code>:</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// tests/integration_test.rs</span>
+
+<span class="k">use</span> <span class="nn">my_crate</span><span class="p">::</span><span class="n">my_function</span><span class="p">;</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">test_my_function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">input</span> <span class="o">=</span> <span class="s">"some input"</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">expected_output</span> <span class="o">=</span> <span class="s">"expected output"</span><span class="p">;</span>
+
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="nf">my_function</span><span class="p">(</span><span class="n">input</span><span class="p">),</span> <span class="n">expected_output</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">// tests/my_library.rs</span>
+
+<span class="k">use</span> <span class="nn">my_library</span><span class="p">::</span><span class="n">init</span><span class="p">;</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">test_init</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="nf">init</span><span class="p">()</span><span class="nf">.is_ok</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre></div></div><ul><li><p>In this example, the <code class="language-plaintext highlighter-rouge">test_init</code> function tests the init function of <code class="language-plaintext highlighter-rouge">my_library</code>. It asserts that the <code class="language-plaintext highlighter-rouge">init</code> function returns <code class="language-plaintext highlighter-rouge">Ok</code>, indicating that the initialization was successful.</p></li><li><p>To run your integration tests, we can use the <code class="language-plaintext highlighter-rouge">cargo test</code> command.</p></li></ul><h3 id="googletest-crate"> GoogleTest Crate <a href="#googletest-crate">#</a></h3><ul><li>The <code class="language-plaintext highlighter-rouge">GoogleTest</code> crate allows for flexible test <code class="language-plaintext highlighter-rouge">assertions</code> using <code class="language-plaintext highlighter-rouge">matchers</code>:</li></ul><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">googletest</span><span class="p">::</span><span class="nn">prelude</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">fails_and_panics</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nd">assert_that!</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nf">eq</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span>
+<span class="p">}</span>
+
+<span class="nd">#[googletest::test]</span>
+<span class="k">fn</span> <span class="nf">two_logged_failures</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nd">expect_that!</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nf">eq</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="c">// Test now failed, but continues executing.</span>
+    <span class="nd">expect_that!</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nf">eq</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span> <span class="c">// Second failure is also logged.</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">fails_immediately_without_panic</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nd">verify_that!</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nf">eq</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="o">?</span><span class="p">;</span> <span class="c">// Test fails and aborts.</span>
+    <span class="nd">verify_that!</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nf">eq</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">?</span><span class="p">;</span> <span class="c">// Never executes.</span>
+    <span class="nf">Ok</span><span class="p">(())</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">simple_assertion</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="p">()</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+    <span class="nd">verify_that!</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nf">eq</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span> <span class="c">// One can also just return the last assertion.</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">test_multiline_string_diff</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">haiku</span> <span class="o">=</span> <span class="s">"Memory safety found,</span><span class="se">\n</span><span class="err">\</span><span class="s">
+                 Rust's strong typing guides the way,</span><span class="se">\n</span><span class="err">\</span><span class="s">
+                 Secure code you'll write."</span><span class="p">;</span>
+    <span class="nd">assert_that!</span><span class="p">(</span>
+        <span class="n">haiku</span><span class="p">,</span>
+        <span class="nf">eq</span><span class="p">(</span><span class="s">"Memory safety found,</span><span class="se">\n</span><span class="err">\</span><span class="s">
+            Rust's silly humor guides the way,</span><span class="se">\n</span><span class="err">\</span><span class="s">
+            Secure code you'll write."</span><span class="p">)</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[googletest::test]</span>
+<span class="k">fn</span> <span class="nf">contains_at_least_one_item_at_least_3</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span> <span class="o">=</span> <span class="nd">vec!</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+    <span class="nd">expect_that!</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nf">contains</span><span class="p">(</span><span class="nf">ge</span><span class="p">(</span><span class="mi">3</span><span class="p">)));</span>
+<span class="p">}</span>
+
+<span class="nd">#[googletest::test]</span>
+<span class="k">fn</span> <span class="nf">strictly_between_9_and_11</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="nd">expect_that!</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nf">gt</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="nf">.and</span><span class="p">(</span><span class="nf">not</span><span class="p">(</span><span class="nf">ge</span><span class="p">(</span><span class="mi">11</span><span class="p">))));</span>
+<span class="p">}</span>
+
+</code></pre></div></div><h3 id="mocking"> Mocking <a href="#mocking">#</a></h3><ul><li>Mocking: While not directly part of the <code class="language-plaintext highlighter-rouge">googletest</code> crate, Rust has its own ecosystem for mocking, such as the <code class="language-plaintext highlighter-rouge">mockall</code> crate, which can be used in conjunction with googletest to create mock objects for testing.</li></ul><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">time</span><span class="p">::</span><span class="n">Duration</span><span class="p">;</span>
+
+<span class="nd">#[mockall::automock]</span>
+<span class="k">pub</span> <span class="k">trait</span> <span class="n">Pet</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">is_hungry</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">,</span> <span class="n">since_last_meal</span><span class="p">:</span> <span class="n">Duration</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">test_robot_dog</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">mock_dog</span> <span class="o">=</span> <span class="nn">MockPet</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="n">mock_dog</span><span class="nf">.expect_is_hungry</span><span class="p">()</span><span class="nf">.return_const</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">mock_dog</span><span class="nf">.is_hungry</span><span class="p">(</span><span class="nn">Duration</span><span class="p">::</span><span class="nf">from_secs</span><span class="p">(</span><span class="mi">10</span><span class="p">)),</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">test_robot_cat</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">mock_cat</span> <span class="o">=</span> <span class="nn">MockPet</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="n">mock_cat</span>
+        <span class="nf">.expect_is_hungry</span><span class="p">()</span>
+        <span class="nf">.with</span><span class="p">(</span><span class="nn">mockall</span><span class="p">::</span><span class="nn">predicate</span><span class="p">::</span><span class="nf">gt</span><span class="p">(</span><span class="nn">Duration</span><span class="p">::</span><span class="nf">from_secs</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)))</span>
+        <span class="nf">.return_const</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+    <span class="n">mock_cat</span><span class="nf">.expect_is_hungry</span><span class="p">()</span><span class="nf">.return_const</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">mock_cat</span><span class="nf">.is_hungry</span><span class="p">(</span><span class="nn">Duration</span><span class="p">::</span><span class="nf">from_secs</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)),</span> <span class="kc">false</span><span class="p">);</span>
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="n">mock_cat</span><span class="nf">.is_hungry</span><span class="p">(</span><span class="nn">Duration</span><span class="p">::</span><span class="nf">from_secs</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="mi">3600</span><span class="p">)),</span> <span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="error-handling"> Error Handling <a href="#error-handling">#</a></h2><h3 id="panics"> Panics <a href="#panics">#</a></h3><ul><li>Rust will trigger a panic if a fatal error happens at runtime:</li></ul><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">v</span> <span class="o">=</span> <span class="nd">vec!</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">];</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"v[10]: {}"</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">10</span><span class="p">]);</span> <span class="c">// v[0]</span>
+<span class="p">}</span>
+</code></pre></div></div><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Compiling playground v0.0.1 (/playground)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.54s
+    Running `target/debug/playground`
+thread 'main' panicked at src/main.rs:3:28:
+index out of bounds: the len is 3 but the index is 10
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+</code></pre></div></div><p><code class="language-plaintext highlighter-rouge">panic!</code> Macro:</p><p>The <code class="language-plaintext highlighter-rouge">panic!</code> macro is used to create a panic, which is an unrecoverable error. When a panic occurs, the program will print a failure message, unwind and clean up the stack, and then quit.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">panic!</span><span class="p">(</span><span class="s">"This is a panic!"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="try-operator"> Try Operator <a href="#try-operator">#</a></h3><p>The try-operator <code class="language-plaintext highlighter-rouge">?</code> is used to return errors to the caller.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">match</span> <span class="n">some_expression</span> <span class="p">{</span>
+    <span class="nf">Ok</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="n">value</span><span class="p">,</span>
+    <span class="nf">Err</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="k">return</span> <span class="nf">Err</span><span class="p">(</span><span class="n">err</span><span class="p">),</span>
+<span class="p">}</span>
+</code></pre></div></div><p>It’s a shorthand for handling <code class="language-plaintext highlighter-rouge">Result</code> types, making error handling more concise and readable.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">fs</span><span class="p">::</span><span class="n">File</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::{</span><span class="k">self</span><span class="p">,</span> <span class="n">Read</span><span class="p">};</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">path</span><span class="p">::</span><span class="n">Path</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="n">read_file_to_string</span><span class="o">&lt;</span><span class="n">P</span><span class="p">:</span> <span class="n">AsRef</span><span class="o">&lt;</span><span class="n">Path</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">P</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nn">io</span><span class="p">::</span><span class="n">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">file</span> <span class="o">=</span> <span class="nn">File</span><span class="p">::</span><span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">contents</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">new</span><span class="p">();</span>
+    <span class="n">file</span><span class="nf">.read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">contents</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+    <span class="nf">Ok</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">match</span> <span class="nf">read_file_to_string</span><span class="p">(</span><span class="s">"/file.txt"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"File contents: {}"</span><span class="p">,</span> <span class="n">contents</span><span class="p">),</span>
+        <span class="nf">Err</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Error reading file: {}"</span><span class="p">,</span> <span class="n">e</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><p>If either of these operations returns an <code class="language-plaintext highlighter-rouge">Err</code>, the <code class="language-plaintext highlighter-rouge">?</code> operator will immediately return this error from the <code class="language-plaintext highlighter-rouge">read_file_to_string</code> function. If both operations succeed, the function returns the contents of the file wrapped in an <code class="language-plaintext highlighter-rouge">Ok</code>.</p><h3 id="thiserror--and-anyhow"> thiserror and anyhow <a href="#thiserror--and-anyhow">#</a></h3><p>The <code class="language-plaintext highlighter-rouge">thiserror</code> and <code class="language-plaintext highlighter-rouge">anyhow</code> crates are widely used to simplify error handling.</p><ul><li><p><code class="language-plaintext highlighter-rouge">thiserror</code> is often used in libraries to create custom error types that implement <code class="language-plaintext highlighter-rouge">From&lt;T&gt;</code>. It allows you to define your own error types that implement the <code class="language-plaintext highlighter-rouge">std::error::Error</code> trait.</p></li><li><p><code class="language-plaintext highlighter-rouge">anyhow</code> is often used by applications to help with error handling in functions, including adding contextual information to your errors.</p></li></ul><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">use</span> <span class="nn">anyhow</span><span class="p">::{</span><span class="n">bail</span><span class="p">,</span> <span class="n">Context</span><span class="p">,</span> <span class="n">Result</span><span class="p">};</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="n">fs</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">io</span><span class="p">::</span><span class="n">Read</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">thiserror</span><span class="p">::</span><span class="n">Error</span><span class="p">;</span>
+
+<span class="nd">#[derive(Clone,</span> <span class="nd">Debug,</span> <span class="nd">Eq,</span> <span class="nd">Error,</span> <span class="nd">PartialEq)]</span>
+<span class="nd">#[error(</span><span class="s">"Found no username in {0}"</span><span class="nd">)]</span>
+<span class="k">struct</span> <span class="nf">EmptyUsernameError</span><span class="p">(</span><span class="nb">String</span><span class="p">);</span>
+
+<span class="k">fn</span> <span class="nf">read_username</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Result</span><span class="o">&lt;</span><span class="nb">String</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">username</span> <span class="o">=</span> <span class="nn">String</span><span class="p">::</span><span class="nf">with_capacity</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="nn">fs</span><span class="p">::</span><span class="nn">File</span><span class="p">::</span><span class="nf">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="nf">.with_context</span><span class="p">(||</span> <span class="nd">format!</span><span class="p">(</span><span class="s">"Failed to open {path}"</span><span class="p">))</span><span class="o">?</span>
+        <span class="nf">.read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">username</span><span class="p">)</span>
+        <span class="nf">.context</span><span class="p">(</span><span class="s">"Failed to read"</span><span class="p">)</span><span class="o">?</span><span class="p">;</span>
+    <span class="k">if</span> <span class="n">username</span><span class="nf">.is_empty</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nd">bail!</span><span class="p">(</span><span class="nf">EmptyUsernameError</span><span class="p">(</span><span class="n">path</span><span class="nf">.to_string</span><span class="p">()));</span>
+    <span class="p">}</span>
+    <span class="nf">Ok</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c">//fs::write("config.dat", "").unwrap();</span>
+    <span class="k">match</span> <span class="nf">read_username</span><span class="p">(</span><span class="s">"config.dat"</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">Ok</span><span class="p">(</span><span class="n">username</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Username: {username}"</span><span class="p">),</span>
+        <span class="nf">Err</span><span class="p">(</span><span class="n">err</span><span class="p">)</span> <span class="k">=&gt;</span> <span class="nd">println!</span><span class="p">(</span><span class="s">"Error: {err:?}"</span><span class="p">),</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><h2 id="unsafe-rust"> Unsafe Rust <a href="#unsafe-rust">#</a></h2><h3 id="unsafe"> Unsafe <a href="#unsafe">#</a></h3><p>Can trigger undefined behavior if preconditions are violated.</p><p>In both unsafe functions and unsafe blocks, Rust will let you do three things that you normally can not do. they are:</p><ul><li>Access or update a static mutable variable.</li><li>Dereference a raw pointer.</li><li>Call unsafe functions. This is the most powerful ability.</li></ul><p><code class="language-plaintext highlighter-rouge">unsafe</code> is used in four contexts:</p><ol><li>The first one is to mark a function as <code class="language-plaintext highlighter-rouge">unsafe</code>:</li></ol><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nd">#![allow(unused_variables)]</span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">unsafe</span> <span class="k">fn</span> <span class="nf">danger_will_robinson</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c">// Scary stuff...</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><ol><li>The second use of unsafe is an <code class="language-plaintext highlighter-rouge">unsafe block</code>:</li></ol><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nd">#![allow(unused_variables)]</span>
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+<span class="k">unsafe</span> <span class="p">{</span>
+    <span class="c">// Scary stuff...</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><ol><li>The third is for <code class="language-plaintext highlighter-rouge">unsafe traits</code>: ```rust</li></ol><p>#![allow(unused_variables)] fn main() { unsafe trait Scary { } }</p><div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+4. And the fourth is for `impl`ementing one of those traits:
+
+```rust
+
+#![allow(unused_variables)]
+fn main() {
+unsafe trait Scary { }
+unsafe impl Scary for i32 {}
+}
+</code></pre></div></div><h3 id="mutable-static-variables"> Mutable Static Variables <a href="#mutable-static-variables">#</a></h3><p>It is safe to read an immutable static variable:</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="n">HELLO_WORLD</span><span class="p">:</span> <span class="o">&amp;</span><span class="nb">str</span> <span class="o">=</span> <span class="s">"Hello, world!"</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"HELLO_WORLD: {HELLO_WORLD}"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><p>However, since data races can occur, it is unsafe to read and write mutable static variables:</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">static</span> <span class="k">mut</span> <span class="n">COUNTER</span><span class="p">:</span> <span class="nb">u32</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">add_to_counter</span><span class="p">(</span><span class="n">inc</span><span class="p">:</span> <span class="nb">u32</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">unsafe</span> <span class="p">{</span>
+        <span class="n">COUNTER</span> <span class="o">+=</span> <span class="n">inc</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">add_to_counter</span><span class="p">(</span><span class="mi">42</span><span class="p">);</span>
+
+    <span class="k">unsafe</span> <span class="p">{</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"COUNTER: {COUNTER}"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="unions"> Unions <a href="#unions">#</a></h3><p>In Rust, a <code class="language-plaintext highlighter-rouge">union</code> is a type that allows you to store different types of data in the same memory location.</p><p><code class="language-plaintext highlighter-rouge">Unions</code> are similar to <code class="language-plaintext highlighter-rouge">structs</code>, but they do not have a constructor and do not automatically implement any <code class="language-plaintext highlighter-rouge">traits</code>. Instead, they are used for low-level programming tasks where you need to manually manage the memory layout.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[repr(C)]</span>
+<span class="n">union</span> <span class="n">MyUnion</span> <span class="p">{</span>
+    <span class="n">i</span><span class="p">:</span> <span class="nb">u8</span><span class="p">,</span>
+    <span class="n">b</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">u</span> <span class="o">=</span> <span class="n">MyUnion</span> <span class="p">{</span> <span class="n">i</span><span class="p">:</span> <span class="mi">42</span> <span class="p">};</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"int: {}"</span><span class="p">,</span> <span class="k">unsafe</span> <span class="p">{</span> <span class="n">u</span><span class="py">.i</span> <span class="p">});</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"bool: {}"</span><span class="p">,</span> <span class="k">unsafe</span> <span class="p">{</span> <span class="n">u</span><span class="py">.b</span> <span class="p">});</span> <span class="c">// Undefined behavior!</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="unsafe-functions"> Unsafe Functions <a href="#unsafe-functions">#</a></h3><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">unsafe</span> <span class="k">fn</span> <span class="nf">dangerous_operation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="k">mut</span> <span class="n">num</span> <span class="o">=</span>  <span class="mi">5</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">r1</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">num</span> <span class="k">as</span> <span class="o">*</span><span class="k">const</span> <span class="nb">i32</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">r2</span> <span class="o">=</span> <span class="o">&amp;</span><span class="k">mut</span> <span class="n">num</span> <span class="k">as</span> <span class="o">*</span><span class="k">mut</span> <span class="nb">i32</span><span class="p">;</span>
+
+    <span class="k">unsafe</span> <span class="p">{</span>
+        <span class="o">*</span><span class="n">r2</span> <span class="o">=</span>  <span class="mi">10</span><span class="p">;</span>
+        <span class="nd">println!</span><span class="p">(</span><span class="s">"r1 is: {}"</span><span class="p">,</span> <span class="o">*</span><span class="n">r1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nf">dangerous_operation</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div><p>Here, <code class="language-plaintext highlighter-rouge">dangerous_operation</code> is an unsafe function that creates a raw pointer to an integer and then modifies the value through the raw pointer.</p><h3 id="implementing-unsafe-traits"> Implementing Unsafe Traits <a href="#implementing-unsafe-traits">#</a></h3><p>Like with functions, We can mark a trait as <code class="language-plaintext highlighter-rouge">unsafe</code> if the implementation must guarantee particular conditions to avoid undefined behaviour.</p><div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="nn">mem</span><span class="p">::</span><span class="n">size_of_val</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">std</span><span class="p">::</span><span class="n">slice</span><span class="p">;</span>
+
+<span class="c">/// ...</span>
+<span class="c">/// # Safety</span>
+<span class="c">/// The type must have a defined representation and no padding.</span>
+<span class="k">pub</span> <span class="k">unsafe</span> <span class="k">trait</span> <span class="n">AsBytes</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">as_bytes</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">u8</span><span class="p">]</span> <span class="p">{</span>
+        <span class="k">unsafe</span> <span class="p">{</span>
+            <span class="nn">slice</span><span class="p">::</span><span class="nf">from_raw_parts</span><span class="p">(</span>
+                <span class="k">self</span> <span class="k">as</span> <span class="o">*</span><span class="k">const</span> <span class="n">Self</span> <span class="k">as</span> <span class="o">*</span><span class="k">const</span> <span class="nb">u8</span><span class="p">,</span>
+                <span class="nf">size_of_val</span><span class="p">(</span><span class="k">self</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c">// Safe because u32 has a defined representation and no padding.</span>
+<span class="k">unsafe</span> <span class="k">impl</span> <span class="n">AsBytes</span> <span class="k">for</span> <span class="nb">u32</span> <span class="p">{}</span>
+
+<span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="n">value</span><span class="p">:</span> <span class="nb">u32</span> <span class="o">=</span>  <span class="mi">42</span><span class="p">;</span>
+    <span class="k">let</span> <span class="n">bytes</span> <span class="o">=</span> <span class="n">value</span><span class="nf">.as_bytes</span><span class="p">();</span>
+    <span class="nd">println!</span><span class="p">(</span><span class="s">"Bytes of u32: {:?}"</span><span class="p">,</span> <span class="n">bytes</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div><h3 id="additional-resources"> Additional Resources <a href="#additional-resources">#</a></h3><ul><li><a href="https://google.github.io/comprehensive-rust/">Google Comprehensive Rust Course</a></li><li><a href="https://github.com/google/comprehensive-rust">Comprehensive Rust</a></li><li><a href="https://doc.rust-lang.org/">Rust Documentation</a></li><li><a href="https://doc.rust-lang.org/cargo/">Cargo Guide</a></li><li><a href="https://doc.rust-lang.org/book/ch11-00-testing.html">Rust Testing</a></li></ul></section><section><nav class="post-nav"> <a class="post-nav-item post-nav-prev" href="/2023/08/28/sekaictf"><div class="nav-arrow">Previous</div><span class="post-title">SekaiCTF 2023</span> </a></nav></section></main><script> function setTheme(theme) { if (theme === "dark") { document.documentElement.setAttribute('data-theme', 'dark'); window.localStorage.setItem('theme', 'dark'); document.getElementById("theme-toggle").classList.add('sun'); document.getElementById("theme-toggle").classList.remove('moon'); } else { document.documentElement.setAttribute('data-theme', 'light'); window.localStorage.setItem('theme', 'light'); document.getElementById("theme-toggle").classList.add('moon'); document.getElementById("theme-toggle").classList.remove('sun'); } } let theme = localStorage.getItem('theme'); theme = theme || (window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light' : 'light'); setTheme(theme); function modeSwitcher() { let currentMode = document.documentElement.getAttribute('data-theme'); if (currentMode === "dark") { setTheme('light'); } else { setTheme('dark'); } } </script></body><footer class="social-footer"><div class="social-footer-icons"> <a href="https://www.linkedin.com/in/th3m4r10/" title="Linkedin profile" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin" aria-hidden="true"></i></a> <a href="https://twitter.com/Th3M4r10_" title="Twitter profile" target="_blank" rel="noopener noreferrer"><i class="fa fa-twitter" aria-hidden="true"></i></a> <a href="https://github.com/Th3M4r10" title="Github profile" target="_blank" rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i></a> <a href="https://th3m4r10.github.io/atom.xml" title="Feed RSS" target="_blank" rel="noopener noreferrer"><i class="fa fa-rss" aria-hidden="true"></i></a> <a href="https://github.com/Th3M4r10/th3m4r10.github.io" title="Browse the code" target="_blank" rel="noopener noreferrer"><i class="fa fa-code" aria-hidden="true"></i></a></div></footer></html>
